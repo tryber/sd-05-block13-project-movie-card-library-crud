@@ -13,7 +13,7 @@ class MovieCard extends React.Component {
         <h2>{movie.title}</h2>
         <p>{movie.storyline}</p>
         <div>
-          <Link to={`/movies/${movie.id}`}>VER DETALHES</Link> />
+          <Link to={`/movies/${movie.id}`}>VER DETALHES</Link>
         </div>
       </div>
     );
@@ -22,6 +22,6 @@ class MovieCard extends React.Component {
 
 export default MovieCard;
 
-MovieCard.PropTypes={
-  movie: PropTypes.object.isRequired
+MovieCard.PropTypes= {
+  movie: PropTypes.object.isRequired,
 };
