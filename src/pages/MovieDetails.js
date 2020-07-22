@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Loading } from '../components';
 
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor(props){
+    super(props);
     this.state = {
       movies: '',
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const data = await movieAPI.getMovies();
     this.setState({
-      movies: movieAPI.getMovies(),
+      movies: data,
     });
   }
 
   render() {
     // Change the condition to check the state
-    if (this.state.movies === '') return <Loading />;
+    if (this.state.movies === "") return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 

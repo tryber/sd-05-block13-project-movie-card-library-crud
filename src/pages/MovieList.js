@@ -6,14 +6,16 @@ import Loading from '../components/Loading';
 
 class MovieList extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       movies: '',
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const data = await movieAPI.getMovies();
     this.setState({
-      movies: movieAPI.getMovies(),
+      movies: data,
     });
   }
 
@@ -23,7 +25,7 @@ class MovieList extends Component {
     if (movies === '') return (<Loading />);
 
     return (
-      <div data-testid="movie-list">
+      <div data-testid="movie-list" className="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
