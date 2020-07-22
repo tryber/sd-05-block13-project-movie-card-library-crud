@@ -5,24 +5,6 @@ import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: '',
-    };
-    this.updateState = this.updateState.bind(this);
-  }
-
-  async componentDidMount() {
-    const data = await movieAPI.getMovies();
-    this.updateState(data);
-  }
-
-  updateState(parametro) {
-    this.setState({
-      movies: parametro,
-    });
-  }
 
   render() {
     // Change the condition to check the state
