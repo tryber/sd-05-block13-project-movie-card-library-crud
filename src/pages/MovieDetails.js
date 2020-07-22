@@ -1,15 +1,35 @@
 import React, { Component } from 'react';
 
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+import Loading from '../components/Loading';
+import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movie: {},
+      isLoading: true,
+    };
+  }
+
+  componentDidMount() {
+    // pegar getMovie e colocar id - trabalhar com match
+    const id = this.props.match.params.id;
+    movieAPI.getMovie(id)
+    .then((mov) => this.setState({
+      movie: mov,
+      isLoading: false,
+    }));
+  }
+
   render() {
     // Change the condition to check the state
-    if (true) return <Loading />;
+    const { movie, isLoading } = this.state;
+    if (isLoading) return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-
+    
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -17,6 +37,8 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <Link to={`/movies/${this.props.match.params.id}/edit`}>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
