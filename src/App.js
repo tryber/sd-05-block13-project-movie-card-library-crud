@@ -15,15 +15,9 @@ function App() {
         <Switch>
           <Route path="/movies/new" render={(props) => <NewMovie {...props} />} />
           <Route exact path="/movies/:id/edit" render={(props) => <EditMovie {...props} />} />
-          <Route exact path="/" render={(props) => {
-            return <MovieList {...props} movies={movies} />
-          }} />
-          <Route exact path="/movies/:id" render={(props) => {
-            return <MovieDetails {...props} />
-          }} />
-          <Route exact path="/movies/new" render={(props) => {
-            return <NewMovie {...props} />
-          }} />
+          <Route exact path="/" render={(props) => <MovieList {...props} movies={movies} />} />
+          <Route exact path="/movies/:id" render={(props) => <MovieDetails {...props} />} />
+          <Route exact path="/movies/new" render={(props) => <NewMovie {...props} />} />
           <Route path="/:error" component={NotFound} />
         </Switch>
       </BrowserRouter>

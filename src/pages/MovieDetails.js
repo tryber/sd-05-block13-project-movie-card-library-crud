@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -12,16 +13,11 @@ class MovieDetails extends Component {
       loading: true,
       movie: {},
       redirect: false,
-      failed: false
-    }
+      failed: false,
+    };
     this.deleteMovie = this.deleteMovie.bind(this);
   }
-  
-  async deleteMovie() {
-    await movieAPI.deleteMovie(this.state.movie.id);
-    this.setState({ redirect: true });
-  }
-  
+
   async componentDidMount() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     if (movie) {
@@ -32,6 +28,11 @@ class MovieDetails extends Component {
     } else {
       this.setState({ failed: true })
     }
+  }
+
+  async deleteMovie() {
+    await movieAPI.deleteMovie(this.state.movie.id);
+    this.setState({ redirect: true });
   }
 
   render() {
@@ -57,5 +58,9 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.node.isRequired,
+};
 
 export default MovieDetails;
