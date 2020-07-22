@@ -6,12 +6,12 @@ import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       isLoading: true,
-      movies: []
-    }
+      movies: [],
+    };
   }
 
   componentDidMount() {
@@ -19,7 +19,7 @@ class MovieList extends Component {
     .then((movie) => {
       this.setState({
         isLoading: false,
-        movies: movie
+        movies: movie,
       });
     });
   }
@@ -27,7 +27,7 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
-    if(this.state.isLoading) return (<Loading />);
+    if (this.state.isLoading) return (<Loading />);
 
     return (
       <div data-testid="movie-list">

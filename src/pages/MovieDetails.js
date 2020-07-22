@@ -10,8 +10,8 @@ const defaultMovie = {
   imagePath: '',
   genre: '',
   rating: 0,
-  subtitle: ''
-}
+  subtitle: '',
+};
 
 class MovieDetails extends Component {
 
@@ -27,7 +27,7 @@ class MovieDetails extends Component {
     const mid = this.props.match.params.id;
     movieAPI.getMovie(mid)
       .then((movie) => {
-        this.setState({movie, isLoading: false});
+        this.setState({ movie, isLoading: false });
       });
   }
 
@@ -35,7 +35,7 @@ class MovieDetails extends Component {
     if (this.state.isLoading) return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
-    const { id } = this.props.match.params; 
+    const { id } = this.props.match.params;
 
     return (
       <div data-testid="movie-details">
@@ -45,7 +45,7 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to={`${id || 1 }/edit`}>EDITAR</Link>
+        <Link to={`${id || 1}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>
     );
