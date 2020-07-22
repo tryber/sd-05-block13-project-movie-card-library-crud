@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import MovieCard from '../components/MovieCard';
+import { Link } from 'react-router-dom';
 
+import MovieCard from '../components/MovieCard';
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
-import { Link } from 'react-router-dom';
 import NotFound from './NotFound';
 
 class MovieList extends Component {
@@ -12,8 +12,9 @@ class MovieList extends Component {
     this.state = {
       loading: true,
       movies: {},
-      failed: false
-    }
+      failed: false,
+    };
+    this.changeState = this.changeState.bind(this);
   }
 
   async componentDidMount() {
@@ -26,6 +27,10 @@ class MovieList extends Component {
     } else {
       this.setState({ failed: true })
     }
+  }
+
+  changeState(param, value) {
+    this.setState({ [param]: value });
   }
 
   render() {

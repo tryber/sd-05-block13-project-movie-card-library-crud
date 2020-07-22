@@ -16,18 +16,21 @@ class MovieDetails extends Component {
       failed: false,
     };
     this.deleteMovie = this.deleteMovie.bind(this);
+    this.changeState = this.changeState.bind(this);
   }
 
   async componentDidMount() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     if (movie) {
-      this.setState({
-        loading: false,
-        movie: movie,
-      });
+      this.changeState('movie', movie);
+      this.changeState('loading', false);
     } else {
-      this.setState({ failed: true })
+      this.changeState('failed', true);
     }
+  }
+
+  changeState(param, value) {
+    this.setState({ [param]: value });
   }
 
   async deleteMovie() {
