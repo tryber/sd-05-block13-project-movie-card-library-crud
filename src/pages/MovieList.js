@@ -36,7 +36,7 @@ class MovieList extends Component {
 
   render() {
     const { movies } = this.state;
-    if (this.state.failed) return <NotFound />
+    if (this.state.failed) return <NotFound />;
     if (this.state.loading) return <Loading />;
 
     return (

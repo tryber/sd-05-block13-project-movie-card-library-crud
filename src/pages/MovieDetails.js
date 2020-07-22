@@ -40,9 +40,9 @@ class MovieDetails extends Component {
 
   render() {
     // Change the condition to check the state
-    if (this.state.failed) return <NotFound />
+    if (this.state.failed) return <NotFound />;
     if (this.state.loading) return <Loading />;
-    if (this.state.redirect) return <Redirect to="/" />
+    if (this.state.redirect) return <Redirect to="/" />;
 
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
@@ -61,9 +61,5 @@ class MovieDetails extends Component {
     );
   }
 }
-
-MovieDetails.propTypes = {
-  match: PropTypes.node.isRequired,
-};
 
 export default MovieDetails;
