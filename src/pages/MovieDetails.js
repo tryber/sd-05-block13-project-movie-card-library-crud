@@ -5,7 +5,7 @@ import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       movies: '',
@@ -21,7 +21,7 @@ class MovieDetails extends Component {
 
   render() {
     // Change the condition to check the state
-    if (this.state.movies === "") return <Loading />;
+    if (this.state.movies === '') return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 

@@ -21,7 +21,6 @@ class MovieList extends Component {
 
   render() {
     const { movies } = this.state;
-    console.log(movies);
     if (movies === '') return (<Loading />);
 
     return (
