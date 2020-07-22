@@ -22,14 +22,6 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-  }),
-}
-
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
   })
 }
 
