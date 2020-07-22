@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class MovieCard extends React.Component {
     return (
       <div data-testid="movie-card">
         <div className="superior">
-          <img src={imagePath} alt={title} />
+          <img src={`../${imagePath}`} alt={title} />
           <div className="titulo">
             {title}
           </div>
