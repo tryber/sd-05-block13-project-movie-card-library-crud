@@ -10,12 +10,17 @@ class MovieDetails extends Component {
     this.state = {
       movies: '',
     };
+    this.updateState = this.updateState.bind(this);
   }
 
   async componentDidMount() {
     const data = await movieAPI.getMovies();
+    this.updateState(data);
+  }
+
+  updateState(parametro) {
     this.setState({
-      movies: data,
+      movies: parametro,
     });
   }
 
