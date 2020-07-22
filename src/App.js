@@ -8,9 +8,9 @@ function App() {
   <BrowserRouter>
   <div>Movie Card Library CRUD</div>
   <MovieList />
-  <Switch>
+  {/* <Switch>
     <Route to="/movies/:id" component={MovieDetails} />
-  </Switch>
+  </Switch> */}
   </BrowserRouter>
   );
 }
