@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import PropTypes from 'prop-types';
+
 
 class MovieDetails extends Component {
   render() {
