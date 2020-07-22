@@ -4,10 +4,10 @@ import MovieList from './pages/MovieList';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>Movie Card Library CRUD</div>
-      <MovieList />
-    </BrowserRouter>
+  <BrowserRouter>
+  <div>Movie Card Library CRUD</div>
+  <MovieList />
+  </BrowserRouter>
   );
 }
 
