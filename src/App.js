@@ -1,8 +1,13 @@
 import React from 'react';
+import MovieList from "./pages/MovieList";
 
 function App() {
   return (
-      <div>Movie Card Library CRUD</div>
+    <div>
+      <h1>Movie Card Library CRUD</h1>
+      <MovieList />
+    </div>
+
   );
 }
 
