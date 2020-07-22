@@ -8,7 +8,7 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     if (true) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle } = this.props.movie;
 
     return (
       <div data-testid="movie-details">
