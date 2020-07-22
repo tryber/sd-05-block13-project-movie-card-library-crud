@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 class MovieCard extends React.Component {
   constructor(props) {
@@ -33,6 +34,27 @@ class MovieCard extends React.Component {
       </div>
     );
   }
+  movieCardPropType = PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    storyline: PropTypes.string,
+    imagePath: PropTypes.string,
+   });
 }
+
+
 // shape is required
 export default MovieCard;
+
+
+
+//  alert.PropTypes = {
+//   hideComponent: PropTypes.func,
+//   contentTitle: PropTypes.string,
+//   content: PropTypes.string,
+//   children: PropTypes.object,
+//   children: PropTypes.shape({
+//     title: PropTypes.string,
+//     content: PropTypes.string,
+//     timeSeconds: PropTypes.number
+//   })

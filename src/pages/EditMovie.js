@@ -52,6 +52,3 @@ class EditMovie extends Component {
 }
 
 export default EditMovie;
-
-// EditMovie: deve realizar uma requisição para buscar o filme que será editado.
-// Ao ser montada, a página de edição do filme deve fazer uma requisição pra buscar o filme que será editado e deve, ao ter seu formulário submetido, artualizar o filme e redirecionar a página pra rota raíz.
