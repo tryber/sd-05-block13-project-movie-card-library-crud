@@ -4,6 +4,16 @@ import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
+  constructor(props) {
+    this.state = {
+      movies: '',
+    };
+  }
+
+  componentDidMount() {
+    movieAPI.getMovies();
+  }
+
   render() {
     const { movies } = this.state;
 
