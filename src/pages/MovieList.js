@@ -12,11 +12,14 @@ class MovieList extends Component {
     };
   }
 
+  updateState(parametro) {
+    this.setState({
+      movies: parametro,
+    });
+  }
   async componentDidMount() {
     const data = await movieAPI.getMovies();
-    this.setState({
-      movies: data,
-    });
+    this.updateState(data);
   }
 
   render() {
