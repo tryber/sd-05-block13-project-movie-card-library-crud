@@ -92,13 +92,13 @@ const renderPath = (path) => {
 };
 
 describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
-  test.skip('check root', async () => {
+  test('check root', async () => {
     const { unmount, getByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     expect.anything(getByTestId('movie-list'));
     unmount();
   })
-  test.skip('check movie pages', async () => {
+  test('check movie pages', async () => {
     for (const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovies());
@@ -106,12 +106,12 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
       unmount();
     }
   })
-  test.skip('check new movie page', () => {
+  test('check new movie page', () => {
     const { unmount, getByTestId } = renderPath('/movies/new');
     expect.anything(getByTestId('new-movie'));
     unmount();
   })
-  test.skip('check edit movie pages', async () => {
+  test('check edit movie pages', async () => {
     for (const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id + '/edit');
       await waitFor(() => movieAPI.getMovies());
@@ -119,7 +119,7 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
       unmount();
     }
   })
-  test.skip('check 404 error page', () => {
+  test('check 404 error page', () => {
     const { unmount, getByTestId } = renderPath('/' + Math.random());
     expect.anything(getByTestId('404-error'));
     unmount();
