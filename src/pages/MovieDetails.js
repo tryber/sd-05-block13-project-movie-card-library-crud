@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
-import { Link } from 'react-router-dom';
+
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -27,9 +28,7 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     const { movie, isLoading } = this.state;
     if (isLoading) return <Loading />;
-
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-    
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
