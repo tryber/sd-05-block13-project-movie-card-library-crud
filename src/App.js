@@ -13,20 +13,16 @@ function App() {
       <div>Movie Card Library CRUD</div>
       <BrowserRouter>
         <Switch>
-          <Route path="/movies/new" render={(props) => {
-            return <NewMovie { ...props } />
-          }} />
-          <Route exact path="/movies/:id/edit" render={(props) => {
-            return <EditMovie { ...props } />
-          }} />
+          <Route path="/movies/new" render={(props) => <NewMovie {...props} />} />
+          <Route exact path="/movies/:id/edit" render={(props) => <EditMovie {...props} />} />
           <Route exact path="/" render={(props) => {
-            return <MovieList { ...props } movies={movies} />
+            return <MovieList {...props} movies={movies} />
           }} />
           <Route exact path="/movies/:id" render={(props) => {
-            return <MovieDetails { ...props } />
+            return <MovieDetails {...props} />
           }} />
           <Route exact path="/movies/new" render={(props) => {
-            return <NewMovie { ...props } />
+            return <NewMovie {...props} />
           }} />
           <Route path="/:error" component={NotFound} />
         </Switch>

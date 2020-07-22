@@ -12,18 +12,18 @@ class MovieCard extends React.Component {
         <div>{storyline}</div>
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
       </div>
-      
     );
   }
 }
 
 MovieCard.propTypes = {
+  movie: PropTypes.object.isRequired,
   movie: PropTypes.shape({
     imagePath: PropTypes.string,
     title: PropTypes.string,
     storyline: PropTypes.string,
-    id: PropTypes.number
-  })
-}
+    id: PropTypes.number,
+  }),
+};
 
 export default MovieCard;
