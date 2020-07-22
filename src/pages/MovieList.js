@@ -20,17 +20,18 @@ class MovieList extends Component {
   async componentDidMount() {
     const movies = await movieAPI.getMovies();
     if (movies) {
-      this.setState({
-        loading: false,
-        movies: movies,
-      });
+      this.changeState(false, movies);
     } else {
-      this.setState({ failed: true })
+      this.changeState(false, {}, true);
     }
   }
 
-  changeState(param, value) {
-    this.setState({ [param]: value });
+  changeState(loading, movies, failed) {
+    this.setState({
+      loading,
+      movies,
+      failed,
+    });
   }
 
   render() {
