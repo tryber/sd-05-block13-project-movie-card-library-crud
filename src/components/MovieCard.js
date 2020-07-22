@@ -34,5 +34,5 @@ class MovieCard extends React.Component {
     );
   }
 }
-
+// shape is required
 export default MovieCard;

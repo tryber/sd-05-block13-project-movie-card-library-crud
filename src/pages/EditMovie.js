@@ -45,7 +45,6 @@ class EditMovie extends Component {
 
     return (
       <div data-testid="edit-movie">
-        {console.log(this.props.match.params.id)}
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>
     );

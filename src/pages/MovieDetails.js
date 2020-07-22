@@ -17,8 +17,12 @@ class MovieDetails extends Component {
   
   async componentDidMount() {
     const response = await movieAPI.getMovie(this.id);
+    this.update(response)
+  }
+
+  update(rsp) {
     this.setState({
-      movie: response
+      movie: rsp
     })
   }
 

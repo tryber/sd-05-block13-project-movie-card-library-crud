@@ -15,10 +15,15 @@ class MovieList extends Component {
   
   async componentDidMount() {
     const response = await movieAPI.getMovies();
+    this.update(response)
+  }
+
+  update(rsp) {
     this.setState({
-      movies: response
+      movies: rsp
     })
   }
+
 
   render() {
     const { movies } = this.state;
