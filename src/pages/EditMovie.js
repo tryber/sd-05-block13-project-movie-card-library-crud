@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import { MovieForm } from '../components';
@@ -32,7 +33,7 @@ class EditMovie extends Component {
   }
 
   render() {
-    if(this.state.isLoading) return (<Loading />);
+    if (this.state.isLoading) return (<Loading />);
     const { shouldRedirect, movie } = this.state;
     if (shouldRedirect) return <Redirect to="/" />;
     return (
@@ -42,5 +43,9 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: propTypes.any.isRequired
+};
 
 export default EditMovie;
