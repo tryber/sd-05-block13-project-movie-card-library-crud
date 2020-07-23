@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { PropTypes, string } from 'prop-types';
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 import { Redirect } from 'react-router-dom';
@@ -15,22 +15,26 @@ class EditMovie extends Component {
     this.id = this.props.match.params.id;
   }
 
+  
+  async componentDidMount() {
+    const response = await movieAPI.getMovie(this.id);
+    this.updateState(response);
+  }
+  
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
     });
   }
-
-  async componentDidMount() {
-    const response = await movieAPI.getMovie(this.id);
+  updateState(rsp) {
     this.setState({
-      movie: response,
+      movie: rsp,
     });
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { shouldRedirect, movie } = this.state;
     // {loggedIn ? <Redirect to="/profile" /> : <HomePage />}
     if (shouldRedirect) {
       // Redirect
@@ -48,6 +52,14 @@ class EditMovie extends Component {
       </div>
     );
   }
+}
+// this.props.match.params.id;
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: string
+    })
+  })
 }
 
 export default EditMovie;

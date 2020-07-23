@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import movies from '../services/movieData';
+// import movies from '../services/movieData';
 
 class MovieDetails extends Component {
   constructor(props) {
