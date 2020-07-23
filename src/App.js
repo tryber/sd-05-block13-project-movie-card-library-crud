@@ -1,10 +1,10 @@
-import React from "react";
-import MovieDetails from "./pages/MovieDetails";
-import NewMovie from "./pages/NewMovie";
-import EditMovie from "./pages/EditMovie";
-import MovieList from "./pages/MovieList";
-import NotFound from "./pages/NotFound";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import React from 'react';
+import MovieDetails from './pages/MovieDetails';
+import NewMovie from './pages/NewMovie';
+import EditMovie from './pages/EditMovie';
+import MovieList from './pages/MovieList';
+import NotFound from './pages/NotFound';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 function App() {
   const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
