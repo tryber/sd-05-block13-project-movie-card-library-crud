@@ -91,7 +91,7 @@ const renderPath = (path) => {
   return { ...resources }
 };
 
-describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
+describe('1 - Route check', () => {
   test('check root', async () => {
     const { unmount, getByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -99,7 +99,7 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
     unmount();
   })
   test('check movie pages', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovies());
       expect.anything(getByTestId('movie-details'));
@@ -112,7 +112,7 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
     unmount();
   })
   test('check edit movie pages', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id + '/edit');
       await waitFor(() => movieAPI.getMovies());
       expect.anything(getByTestId('edit-movie'));
@@ -126,14 +126,14 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
   })
 });
 
-describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição para buscar a lista de filmes a ser renderizada', () => {
-  test('should have a loading screen', async () => {
+describe('2 - Movie list component', () => {
+  test('should have a loading screen', async() => {
     const { container, unmount, getByText } = renderPath('/');
     expect(getByText('Carregando...'));
     await waitFor(() => movieAPI.getMovies())
     unmount();
   })
-  test('should find all cards from API', async () => {
+  test('should find all cards from API', async () => {  
     const { unmount, getAllByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     expect(getAllByTestId('movie-card').length).toBe(5);
@@ -141,7 +141,7 @@ describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição 
   })
 });
 
-describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
+describe('3 - Movie card component', () => {
   test('each card should have at least its movies title and synopsis', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -156,13 +156,13 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     getAllByText('VER DETALHES').forEach((link, index) => {
-      expect(link.href).toBe('http://localhost/movies/' + (index + 1));
+      expect(link.href).toBe('http://localhost/movies/' + ( index + 1 ));
     })
     unmount();
   })
 })
 
-describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
+describe('4 - Movie details component', () => {
 
   it('each movie details page should have a loading screen', () => {
     readMovies().forEach(async (movie) => {
@@ -173,23 +173,23 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
   });
 
   it('each edit movie page should contain its movie info', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { container, unmount } = renderPath(`/movies/${movie.id}`);
       await waitFor(() => movieAPI.getMovie(movie.id))
-      expect(screen.getAllByText(readMovies()[movie.id - 1].title, { exact: false }).length).toBeGreaterThanOrEqual(1);
-      expect(screen.getAllByText(readMovies()[movie.id - 1].subtitle, { exact: false }).length)
-        .toBeGreaterThanOrEqual(1);
-      expect(screen.getByText(readMovies()[movie.id - 1].storyline, { exact: false })).toBeTruthy;
-
+      expect(screen.getAllByText(readMovies()[movie.id-1].title, { exact: false }).length).toBeGreaterThanOrEqual(1);
+      expect(screen.getAllByText(readMovies()[movie.id-1].subtitle, { exact: false }).length)
+      .toBeGreaterThanOrEqual(1);
+      expect(screen.getByText(readMovies()[movie.id-1].storyline, { exact: false })).toBeTruthy;
+   
       let image = screen.getByAltText('Movie Cover').src.split('/').slice(-2).join('/')
-      expect(image).toEqual(readMovies()[movie.id - 1].imagePath);
-      expect(screen.getAllByText(readMovies()[movie.id - 1].genre, { exact: false })).toBeTruthy;
+      expect(image).toEqual(readMovies()[movie.id-1].imagePath);
+      expect(screen.getAllByText(readMovies()[movie.id-1].genre, { exact: false })).toBeTruthy;
       unmount();
     }
   });
 
   it('each movie details page should have a back button', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));
       const backButton = await findByText('VOLTAR')
@@ -199,7 +199,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
   });
 
   it('each movie details page should have a edit button', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));
       const backButton = await findByText('EDITAR')
@@ -209,19 +209,19 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
   });
 });
 
-describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
+describe('5 - Edit movie component', () => {
 
   it('each edit movie page should have a loading screen', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       await cleanup();
       const { unmount, getByText } = renderPath(`/movies/${movie.id}/edit`);
       expect(getByText('Carregando...'));
 
     }
   });
-
+  
   it('each edit movie page should have a form filled with current movie info', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { container, unmount, getByText, getAllByText, getByAltText, getByDisplayValue, getAllByDisplayValue } = renderPath(`/movies/${movie.id}/edit`);
       await waitFor(() => movieAPI.getMovie(movie.id - 1))
       expect(getAllByDisplayValue(readMovies()[movie.id - 1].title, { exact: false }).length).toBeGreaterThanOrEqual(1);
@@ -232,10 +232,10 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
       expect(getAllByDisplayValue(genres[readMovies()[movie.id - 1].genre], { exact: false }))
     }
   });
-
-
+  
+ 
   it('each edit page form should update movie', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       await cleanup();
       const { container, getByLabelText, getByRole } = renderPath(`/movies/${movie.id}/edit`)
       await waitFor(() => movieAPI.getMovie(movie.id))
@@ -246,16 +246,16 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
       const genreInput = getByLabelText('Gênero');
       const evaluationInput = getByLabelText('Avaliação');
       const formButton = getByRole('button');
-
+      
       fireEvent.change(titleInput, { target: { value: 'test title ' + movie.id } })
       fireEvent.change(subTitleInput, { target: { value: 'test subtitle ' + movie.id } })
       fireEvent.change(imageInput, { target: { value: 'testimage' + movie.id } })
       fireEvent.change(synopsisInput, { target: { value: 'test synopsis ' + movie.id } })
       fireEvent.change(genreInput, { target: { value: 'comedy' } })
       fireEvent.change(evaluationInput, { target: { value: movie.id.toString() } })
-
+      
       await waitFor(() => fireEvent.click(formButton));
-
+      
       await waitFor(() => movieAPI.getMovies())
       expect(window.location.pathname).toBe('/');
       expect(screen.getByText(`test title ${movie.id}`));
@@ -270,12 +270,12 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
       expect(image.src).toBe('http://localhost/' + readMovies()[movie.id - 1].imagePath);
       expect(screen.getAllByText(readMovies()[movie.id - 1].genre, { exact: false }))
     }
-
+   
   });
-
+ 
 })
 
-describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
+describe('6 - New movie component', () => {
   it('should exist a new movie link @ home', async () => {
     const { unmount } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -287,7 +287,7 @@ describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos 
   it('should create a new movie', async () => {
     await cleanup();
     renderPath('/movies/new')
-
+    
     const titleInput = screen.getByLabelText('Título');
     const subTitleInput = screen.getByLabelText('Subtítulo');
     const imageInput = screen.getByLabelText('Imagem');
@@ -296,12 +296,12 @@ describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos 
     const evaluationInput = screen.getByLabelText('Avaliação');
     const formButton = screen.getByRole('button');
 
-    fireEvent.change(titleInput, { target: { value: 'newTitle' } })
-    fireEvent.change(subTitleInput, { target: { value: 'newSubtitle' } })
-    fireEvent.change(imageInput, { target: { value: 'newImage' } })
-    fireEvent.change(synopsisInput, { target: { value: 'newSynopsis' } })
+    fireEvent.change(titleInput, { target: { value: 'newTitle'} })
+    fireEvent.change(subTitleInput, { target: { value: 'newSubtitle'} })
+    fireEvent.change(imageInput, { target: { value: 'newImage'} })
+    fireEvent.change(synopsisInput, { target: { value: 'newSynopsis'} })
     fireEvent.change(genreInput, { target: { value: 'thriller' } })
-    fireEvent.change(evaluationInput, { target: { value: 5 } })
+    fireEvent.change(evaluationInput, { target: { value: 5} })
     fireEvent.click(formButton);
 
     await waitFor(() => movieAPI.getMovies())
@@ -312,13 +312,13 @@ describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos 
     expect(screen.getByText(`newTitle`));
     expect(screen.getByText(`newSynopsis`));
     expect(screen.getAllByTestId('movie-card').length).toBe(6);
-
+    
   })
 })
 
-describe('Bônus: Adicione um link para deletar um cartão em MovieDetails', () => {
+describe('Bonus - Delete Movie', () => {
   it('movie details should have delete button', async () => {
-    for (const movie of readMovies()) {
+    for(const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));
       const deleteButton = await findByText('DELETAR')
