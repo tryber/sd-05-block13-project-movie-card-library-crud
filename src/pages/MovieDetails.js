@@ -23,6 +23,7 @@ class MovieDetails extends Component {
       isLoading: true,
       shouldRedirect: false,
     };
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
@@ -57,7 +58,7 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <button href="/" onClick={() => { this.deleteMovie(); }}>DELETAR</button>
+        <Link to="/" onClick={() => { this.deleteMovie(); }}>DELETAR</Link>
         <Link to={`${id || 1}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>
