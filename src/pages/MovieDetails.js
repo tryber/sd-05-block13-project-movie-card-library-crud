@@ -20,7 +20,7 @@ class MovieDetails extends Component {
     super();
     this.state = {
       movie: Object.assign(defaultMovie),
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -54,7 +54,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: propTypes.any.isRequired
+  match: propTypes.object.isRequired,
 };
 
 export default MovieDetails;
