@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
@@ -13,5 +14,12 @@ class MovieCard extends React.Component {
     );
   }
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.object,
+  title: PropTypes.string,
+  storyline: PropTypes.string,
+  id: PropTypes.number,
+};
 
 export default MovieCard;
