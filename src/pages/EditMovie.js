@@ -9,25 +9,24 @@ class EditMovie extends Component {
     super(props);
     this.state = {
       movie: [],
-      shouldRedirect: false
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.id = this.props.match.params.id;
-
   }
 
- async handleSubmit(updatedMovie) {
+  async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
-    })
+    });
   }
 
   async componentDidMount() {
     const response = await movieAPI.getMovie(this.id);
     this.setState({
-      movie: response
-    })
+      movie: response,
+    });
   }
 
   render() {
@@ -35,12 +34,12 @@ class EditMovie extends Component {
     // {loggedIn ? <Redirect to="/profile" /> : <HomePage />}
     if (shouldRedirect) {
       // Redirect
-      return <Redirect to='/' />
+      return <Redirect to="/" />;
     }
 
     if (this.state.movie.length === 0) {
       // render Loading
-      return <Loading />
+      return <Loading />;
     }
 
     return (

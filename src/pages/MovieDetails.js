@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import movies from '../services/movieData';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -11,20 +10,20 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: [],
-    }
+    };
     this.delete = this.delete.bind(this);
     this.id = this.props.match.params.id;
-  } 
-  
+  }
+
   async componentDidMount() {
     const response = await movieAPI.getMovie(this.id);
-    this.update(response)
+    this.update(response);
   }
 
   update(rsp) {
     this.setState({
-      movie: rsp
-    })
+      movie: rsp,
+    });
   }
 
   delete() {
@@ -36,7 +35,14 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     if (this.state.movie.length === 0) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    const {
+      title,
+      storyline,
+      imagePath,
+      genre,
+      rating,
+      subtitle,
+    } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
@@ -47,7 +53,9 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${this.id}/edit`}>EDITAR</Link>
-        <button type="button" onClick={() => this.delete()}><Link to="/">DELETAR</Link></button>
+        <button type="button" onClick={() => this.delete()}>
+          <Link to="/">DELETAR</Link>
+        </button>
         <Link to={'/'}>VOLTAR</Link>
       </div>
     );
@@ -55,5 +63,3 @@ class MovieDetails extends Component {
 }
 
 export default MovieDetails;
-
-// um link com o texto "EDITAR" apontando para a rota /movies/:id/edit e um link apontando para a rota raiz (/) com o texto "VOLTAR".
