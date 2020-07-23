@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     super(props);
     this.state = {
       loading: true,
-      movie: '',
+      movie: {},
     };
   }
 
@@ -24,7 +24,7 @@ class MovieDetails extends Component {
 
     if (loading) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return (
       <div data-testid="movie-details">
