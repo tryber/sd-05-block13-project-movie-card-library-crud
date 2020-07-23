@@ -22,7 +22,7 @@ class MovieForm extends React.Component {
     return (
       <div>
         <input
-          placeholder='Insira o título'
+          placeholder="Insira o título"
           id="movie_title"
           type="text"
           className="validate"

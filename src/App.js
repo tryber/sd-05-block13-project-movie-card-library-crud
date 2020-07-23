@@ -22,7 +22,7 @@ function App() {
         <Route
           path="/movies/:id"
           render={(props) => <MovieDetails {...props} id={ids} />}
-        ></Route>
+        />
         <Route path="/:error" component={NotFound} />
       </Switch>
     </BrowserRouter>
