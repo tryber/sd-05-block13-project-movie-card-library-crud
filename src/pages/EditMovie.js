@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import * as movieAPI from '../services/movieAPI';
 import PropTypes from 'prop-types';
-import { MovieForm, Loading } from '../components';
 import { Redirect } from 'react-router-dom';
+import { MovieForm, Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   componentDidMount() {
     movieAPI.getMovie(this.props.match.params.id).then((response) => {
       this.setState({
@@ -23,7 +23,7 @@ class EditMovie extends Component {
       });
     });
   }
-  
+
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie).then(() => {
       this.setState({
@@ -53,13 +53,9 @@ class EditMovie extends Component {
 export default EditMovie;
 
 EditMovie.propTypes = {
-  match: PropTypes.func,
-  match:{
-    params:PropTypes.func,
+  match : {
+    params : {
+      id : PropTypes.array,
+    },
   },
-  match:{
-    params:{
-      id: PropTypes.array,
-    }
-  }
-}
+};
