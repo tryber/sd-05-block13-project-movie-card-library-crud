@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
+import { Redirect } from 'react-router-dom';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
-import { Redirect } from 'react-router-dom';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -18,7 +17,8 @@ class EditMovie extends Component {
   }
 
   async componentDidMount() {
-    const data = await movieAPI.getMovie(this.props.match.params.id.split(':')[1]);
+    const parametro = this.props.match.params.id.split(':')[1];
+    const data = await movieAPI.getMovie(parametro);
     this.updateState(data);
   }
 
