@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import './MovieCard.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import './MovieCard.css';
+
 
 class MovieCard extends React.Component {
   render() {
-    const { title, storyline, imagePath, id} = this.props.movie;
+    const { title, storyline, imagePath, id } = this.props.movie;
 
     return (
       <div className="movie-card-body">
@@ -18,7 +19,7 @@ class MovieCard extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
