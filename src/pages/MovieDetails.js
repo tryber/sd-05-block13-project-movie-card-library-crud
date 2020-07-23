@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import NotFound from '../pages/NotFound';
@@ -29,7 +30,7 @@ class MovieDetails extends Component {
     if (loading) return <Loading />;
     if (error) return <NotFound />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movies;
+    const { imagePath, title, subtitle, storyline, genre, rating, id } = movies;
 
     return (
       <div data-testid="movie-details">
@@ -39,6 +40,8 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link><br />
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
