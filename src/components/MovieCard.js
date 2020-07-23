@@ -16,16 +16,16 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.propTypes = {
-  title: PropTypes.string,
-  // movie: PropTypes.object,
-  storyline: PropTypes.string,
-  id: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  movie: PropTypes.object.isRequired,
+  storyline: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
-MovieCard.defaultProp = {
-  title: 'Título',
-  storyline: 'Sinopse',
-  id: 'ID',
-};
+// MovieCard.defaultProp = {
+//   title: 'Título',
+//   storyline: 'Sinopse',
+//   id: 'ID',
+// };
 
 export default MovieCard;
