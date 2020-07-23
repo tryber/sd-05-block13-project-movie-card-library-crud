@@ -10,7 +10,7 @@ class MovieCard extends React.Component {
         <div className="movie-card-title">{title}</div>
         <div className="movie-card-storyline">{storyline}</div>
         <div className="movie-card-footer">
-          <Link to={`movies/${id}`}>Ver Detalhes</Link>
+          <Link to={`movies/${id}`}>VER DETALHES</Link>
         </div>
       </div>
     );
@@ -19,7 +19,7 @@ class MovieCard extends React.Component {
 
 MovieCard.propTypes = {
   movie: propTypes.shape({
-    id: propTypes.any,
+    id: propTypes.string,
     title: propTypes.string,
     storyline: propTypes.string,
   }).isRequired,

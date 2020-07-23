@@ -16,8 +16,8 @@ const defaultMovie = {
 
 class MovieDetails extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       movie: Object.assign(defaultMovie),
       isLoading: true,
@@ -54,7 +54,12 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape({
+    isExact: propTypes.bool,
+    params: propTypes.shape({ id: propTypes.string }),
+    path: propTypes.string,
+    url: propTypes.string,
+  }).isRequired,
 };
 
 export default MovieDetails;
