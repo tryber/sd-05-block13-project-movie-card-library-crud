@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -10,7 +10,9 @@ class MovieDetails extends Component {
     this.state = {
       loading: true,
       movie: {},
+      shouldRedirect: false,
     };
+    this.delMovie = this.delMovie.bind(this);
   }
 
   componentDidMount() {
@@ -18,9 +20,15 @@ class MovieDetails extends Component {
     movieAPI.getMovie(id).then((response) => this.setState({ movie: response, loading: false }));
   }
 
+  delMovie() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id).then(() => this.setState({ shouldRedirect: true }));
+  }
 
   render() {
-    const { movie, loading } = this.state;
+    const { movie, loading, shouldRedirect } = this.state;
+
+    if (shouldRedirect) return <Redirect to="/" />;
 
     if (loading) return <Loading />;
 
@@ -36,6 +44,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to={'/'}>VOLTAR</Link>
+        <Link onClick={this.delMovie}>DELETAR</Link>
       </div>
     );
   }
