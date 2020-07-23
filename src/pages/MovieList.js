@@ -10,22 +10,22 @@ class MovieList extends Component {
     super(props);
     this.state = {
       movies: [],
-      isLoading:true,
-    }
+      isLoading: true,
+    };
   }
 
   componentDidMount() {
     movieAPI.getMovies().then((response) => {
       this.setState({
-        isLoading:false,
+        isLoading: false,
         movies: response,
-      })
-    })
+      });
+    });
   }
 
   render() {
     const { movies, isLoading } = this.state;
-    
+
     return (
       <div data-testid="movie-list">
         {isLoading && <Loading />}
