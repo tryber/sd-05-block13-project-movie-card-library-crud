@@ -3,14 +3,14 @@ import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { NotFound } from '../components';
+import NotFound from './NotFound';
 
 class MovieList extends Component {
   constructor(props) {
     super(props);
 
     this.setState({
-      movies: [],
+      movies: {},
       loading: true,
       error: false,
     });
