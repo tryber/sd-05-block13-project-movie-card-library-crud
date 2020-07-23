@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 // import getmovies from '../services/movieAPI';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
-import { Link } from 'react-router-dom';
 
 class MovieList extends Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class MovieList extends Component {
     };
   }
 
-  componentDidMount(){
-    movieAPI.getMovies().then((response) => this.setState({ movies: response, loading: false, }));
+  componentDidMount() {
+    movieAPI.getMovies().then((response) => this.setState({ movies: response, loading: false }));
   }
 
   render() {
