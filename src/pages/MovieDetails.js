@@ -1,4 +1,4 @@
-mport PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
