@@ -10,7 +10,7 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: '',
+      movie: {},
       isLoading: true,
     };
   }
