@@ -40,7 +40,7 @@ class EditMovie extends Component {
       return <Redirect to="/" />;
     }
 
-    if (status === 'loading') {
+    if (status) {
       return <Loading />;
     }
 
