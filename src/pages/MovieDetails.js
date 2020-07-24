@@ -11,7 +11,7 @@ class MovieDetails extends Component {
       id: 1,
       movie: '',
       isLoading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -19,8 +19,8 @@ class MovieDetails extends Component {
       this.setState({
         isLoading: false,
         movie: response,
-      })
-    })
+      });
+    });
   }
 
   render() {
@@ -33,13 +33,14 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`}>
-        <p>{title}</p></img>
+          <p>{title}</p>
+        </img>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/:${id}/edit`}>EDITAR</Link>
-        <Link to='/'>VOLTAR</Link>
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
