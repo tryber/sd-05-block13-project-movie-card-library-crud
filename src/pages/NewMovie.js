@@ -11,7 +11,7 @@ class NewMovie extends Component {
     this.state = {
       // isLoaded: false,
       shouldRedirect: false,
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -29,10 +29,8 @@ class NewMovie extends Component {
   }
 
   render() {
-
-    const { isLoaded, shouldRedirect } = this.state;
-    if (shouldRedirect) return <Redirect to="/" />;
-    // if (isLoaded) return <Loading />;
+    if (this.state.shouldRedirect) return <Redirect to="/" />;
+    // if (this.state.isLoaded) return <Loading />;
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
