@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import MovieDetails from '../pages/MovieDetails';
+import MovieList from '../pages/MovieList';
 
 class MovieCard extends React.Component {
   render() {
@@ -9,7 +11,10 @@ class MovieCard extends React.Component {
         <h3>{this.props.movie.title}</h3>
         <p>{this.props.movie.storyline}</p>
         <Link to={`/movies/${this.props.movie.id}`}>VER DETALHES</Link>
-        {/* <Route path="/movies/:id" component={} /> */}
+        <Switch>
+          <Route exact path="/movies/:id" render={(props) => <MovieDetails  {...props} movie={this.props.movie} />} />
+        </Switch>
+        
       </div>
     );
   }
@@ -22,11 +27,5 @@ MovieCard.propTypes = {
     id: PropTypes.number.isRequired,
   }).isRequired,
 };
-
-// MovieCard.defaultProp = {
-//   title: 'Título',
-//   storyline: 'Sinopse',
-//   id: 'ID',
-// };
 
 export default MovieCard;
