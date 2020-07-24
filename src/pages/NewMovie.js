@@ -2,32 +2,25 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import MovieForm from '../components/MovieForm';
-import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
 
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true,
-      redirect: false,
-    };
+
+    this.state = { redirect: false };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(newMovie) {
     movieAPI.createMovie(newMovie)
       .then(() => {
-        this.setState({
-          loading: false,
-          redirect: true,
-        });
+        this.setState({ redirect: true });
       });
   }
 
   render() {
-    const { loading, redirect } = this.state;
-    if (loading) return <Loading />;
+    const { redirect } = this.state;
     if (redirect) return <Redirect to="/" />;
 
     return (

@@ -9,6 +9,7 @@ import Loading from '../components/Loading';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       movies: {},
       loading: true,
