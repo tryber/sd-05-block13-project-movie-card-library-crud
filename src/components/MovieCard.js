@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import movies from '../services/movieData';
+// import movies from '../services/movieData';
 
 class MovieCard extends React.Component {
   render() {
@@ -14,9 +14,7 @@ class MovieCard extends React.Component {
         <div>{subtitle}</div>
         <div>{storyline}</div>
         <img src={imagePath} alt={title} />
-        <div>
-          <Link to={`movies/${id}`}>VER DETALHES
-        </Link></div>
+        <Link to={`/movies/${id}`}>VER DETALHES</Link></div>
     );
   }
 }
