@@ -17,7 +17,7 @@ class EditMovie extends Component {
   }
 
   async componentDidMount() {
-    const parametro = this.props.match.params.id.split(':')[1];
+    const parametro = this.props.match.params.id;
     const data = await movieAPI.getMovie(parametro);
     this.updateState(data);
   }

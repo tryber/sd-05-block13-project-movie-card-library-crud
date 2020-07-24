@@ -15,7 +15,7 @@ class MovieDetails extends Component {
   }
 
   async componentDidMount() {
-    const data = await movieAPI.getMovie(this.props.match.params.id.split(':')[1]);
+    const data = await movieAPI.getMovie(this.props.match.params.id);
     this.updateState(data);
   }
 
@@ -35,19 +35,13 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Title: ${title}`}</p>
+        <p>{`Subtitle: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <div className="botoes">
-          <div className="editar">
-            <Link to={`/movies/:${id}/edit`}>EDITAR</Link>
-          </div>
-          <div className="voltar">
-            <Link to="/">VOLTAR</Link>
-          </div>
-        </div>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link><br/>
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
@@ -56,5 +50,9 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  match: PropTypes.node.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };

@@ -1,3 +1,4 @@
 .botoes {
   display: flex;
+  flex-direction: column;
 }
