@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
-import { Link } from 'react-router-dom';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -24,7 +24,7 @@ class MovieDetails extends Component {
   }
   render() {
     const { movie, loading } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle, id} = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     if (loading || !movie) return <Loading />;
 
