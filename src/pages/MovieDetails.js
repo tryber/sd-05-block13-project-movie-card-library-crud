@@ -47,3 +47,9 @@ export default MovieDetails;
 // MovieDetails.PropTypes={
 // props.match.params.id.string.isRequired
 // }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({ id: PropTypes.string.isRequired, }).isRequired,
+  }).isRequired,
+};
