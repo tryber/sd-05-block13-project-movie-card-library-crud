@@ -36,7 +36,7 @@ class NewMovie extends Component {
   render() {
     const { shouldRedirect } = this.state;
 
-    if(shouldRedirect) {
+    if (shouldRedirect) {
       return <Redirect to="/" />;
     }
     return (

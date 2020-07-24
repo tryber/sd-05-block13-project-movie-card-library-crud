@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { MovieForm } from '../components';
 import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
+import PropTypes from 'prop-types';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -46,6 +47,6 @@ export default EditMovie;
 
 EditMovie.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.shape({ id: PropTypes.string.isRequired,}).isRequired,
+    params: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
   }).isRequired,
 };
