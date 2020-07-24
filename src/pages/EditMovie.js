@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
+import { Redirect } from 'react-router-dom';
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
-import { Redirect } from 'react-router-dom';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
-   movieAPI.updateMovie(updatedMovie).then(() => this.setState({ shouldRedirect: true }));         
+    movieAPI.updateMovie(updatedMovie).then(() => this.setState({ shouldRedirect: true }));    
   }
 
   render() {
@@ -31,7 +31,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      return (<Loading />)
+      return (<Loading />);
     }
 
     return (
@@ -41,5 +41,13 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default EditMovie;
