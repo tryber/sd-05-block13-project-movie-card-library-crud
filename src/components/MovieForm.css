@@ -1,0 +1,23 @@
+.formulario {
+  margin: 30px 3%;
+  width: 94%;
+}
+
+.caixaInput {
+  height: 25px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.caixaInputTexterea {
+  height: 50px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.botao {
+  background-color: #343a40;
+  color: white;
+  height: 40px;
+  width: 150px;
+}

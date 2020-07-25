@@ -1,5 +1,11 @@
 body {
   background-color: whitesmoke;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
+.linkClass-app {
+  color: #f10;
+  margin: 20px;
+  text-decoration: none;
+}
