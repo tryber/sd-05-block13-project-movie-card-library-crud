@@ -1,3 +1,41 @@
+body {
+  background-color: rgb(68, 10, 126);
+}
+
+a:link {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.box {
+  padding: 205px 50px;
+}
+
+.cartaoBotao {
+  align-self: center;
+  background-color: black;
+  border-radius: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: center;
+  padding: 12px 20px;
+}
+
+.detalhes {
+  background-color: black;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: center;
+  padding: 12px 20px;
+}
+
 .page-title {
   color: #f8f9fa;
   font-size: 28px;
@@ -12,7 +50,7 @@
 }
 
 .movie-card {
-  background-color: rgb(81, 31, 161);
+  background-color: rgb(49, 5, 92);
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 50px;
   display: flex;
@@ -52,9 +90,4 @@
   color: white;
   font-size: 14px;
   text-align: justify;
-}
-
-.detalhes {
-  background-color: white;
-  color: black;
 }
