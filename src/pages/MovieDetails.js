@@ -30,7 +30,7 @@ class MovieDetails extends Component {
   deleteMovie() {
     const idMovie = this.state.movie.id;
     movieAPI.deleteMovie(idMovie);
-    this.setState ({ shouldRedirect: true });
+    this.setState({ shouldRedirect: true });
   }
 
   render() {
