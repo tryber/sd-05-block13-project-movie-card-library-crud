@@ -21,7 +21,8 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div>
+      <div className="NewMovie">
+        <label htmlFor="movie_title">Título</label>
         <input
           placeholder="Insira o título"
           id="movie_title"
@@ -30,7 +31,6 @@ class MovieForm extends React.Component {
           value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
         />
-        <label htmlFor="movie_title">Título</label>
       </div>
     );
   }
@@ -39,7 +39,8 @@ class MovieForm extends React.Component {
     const { subtitle } = this.state;
 
     return (
-      <div>
+      <div className="NewMovie">
+        <label htmlFor="movie_subtitle">Subtítulo</label>
         <input
           placeholder="Insira o subtítulo"
           id="movie_subtitle"
@@ -47,7 +48,6 @@ class MovieForm extends React.Component {
           value={subtitle}
           onChange={(event) => this.updateMovie('subtitle', event.target.value)}
         />
-        <label htmlFor="movie_subtitle">Subtítulo</label>
       </div>
     );
   }
@@ -56,7 +56,8 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
+      <div className="row NewMovie">
+        <label htmlFor="movie_image">Imagem</label>
         <input
           placeholder="Insira o caminho da imagem"
           id="movie_image"
@@ -64,7 +65,6 @@ class MovieForm extends React.Component {
           value={imagePath}
           onChange={(event) => this.updateMovie('imagePath', event.target.value)}
         />
-        <label htmlFor="movie_image">Imagem</label>
       </div>
     );
   }
@@ -73,13 +73,13 @@ class MovieForm extends React.Component {
     const { storyline } = this.state;
 
     return (
-      <div>
+      <div className="NewMovie">
+        <label htmlFor="movie_storyline">Sinopse</label>
         <textarea
           id="movie_storyline"
           value={storyline}
           onChange={(event) => this.updateMovie('storyline', event.target.value)}
         />
-        <label htmlFor="movie_storyline">Sinopse</label>
       </div>
     );
   }
@@ -88,7 +88,7 @@ class MovieForm extends React.Component {
     const { genre } = this.state;
 
     return (
-      <div>
+      <div className="NewMovie">
         <label htmlFor="movie_genre">Gênero</label>
         <select
           id="movie_genre"
@@ -108,7 +108,8 @@ class MovieForm extends React.Component {
     const { rating } = this.state;
 
     return (
-      <div>
+      <div className="NewMovie">
+        <label htmlFor="movie_rating">Avaliação</label>
         <input
           placeholder="Dê a avaliação do filme"
           id="movie_rating"
@@ -119,14 +120,13 @@ class MovieForm extends React.Component {
           value={rating}
           onChange={(event) => this.updateMovie('rating', event.target.value)}
         />
-        <label htmlFor="movie_rating">Avaliação</label>
       </div>
     );
   }
 
   renderSubmitButton() {
     return (
-      <div>
+      <div className="NewMovie">
         <button
           type="button"
           onClick={this.handleSubmit}
@@ -139,7 +139,7 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="movie-card">
         <form>
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
@@ -155,3 +155,29 @@ class MovieForm extends React.Component {
 }
 
 export default MovieForm;
+
+MovieForm.defaultProps = {
+  movie: {
+    id: 0,
+    title: '',
+    subtitle: '',
+    storyline: '',
+    imagePath: '',
+    genre: 'action',
+    rating: '0',
+  },
+};
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    rating: PropTypes.string.isRequired,
+  }).isRequired,
+
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -1,0 +1,33 @@
+.botoes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.editar , .voltar , .deletar {
+  background-color: black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.movie-card-title1 {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.movie-card-subtitle1 {
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.movie-card-storyline1 {
+  color: white;
+  font-size: 12px;
+  text-align: justify;
+}
