@@ -12,6 +12,7 @@ class MovieDetails extends Component {
       movie: null,
       load: true,
     };
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
@@ -19,30 +20,36 @@ class MovieDetails extends Component {
       this.setState({
         movie,
         load: false,
+        deletar: false,
       }));
   }
 
+  async deleteMovie() {
+    await movieAPI.deleteMovie(this.state.movie.id);
+  }
+
   render() {
-    const { movie, load } = this.state;
+    const { load } = this.state;
 
     if (load) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
     return (
       <div className="movie-card-body-d">
         <div className="movie-card-d" data-testid="movie-details">
           <img className="movie-card-image-d" alt="Movie Cover" src={`../${imagePath}`} />
-          <h4 className="movie-card-title-d">{`Title: ${title}`}</h4>
+          <h4 className="movie-card-title-d">{`Title: ${title}`}</h4 >
           <p className="movie-card-subtitle-d">{`Subtitle: ${subtitle}`}</p>
-          <p className="movie-card-storyline-d">{`Storyline: ${storyline}`}</p>
+          <p className="movie-card-storyline-d">{`Synopsis: ${storyline}`}</p>
           <p>{`Genre: ${genre}`}</p>
           <div className="movie-card-rating-d">
             <p className="rating-d">{`Rating: ${rating}`}</p>
           </div>
           <div className="movie-card-link-d">
-            <Link className="linkClass-d" to="/movies/:id/edit">EDITAR</Link>
+            <Link className="linkClass-d" to={`/movies/${id}/edit`}>EDITAR</Link>
             <Link className="linkClass-d" to="/">VOLTAR</Link>
+            <Link className="linkClass-d" to="/" onClick={this.deleteMovie} >DELETAR</Link>
           </div>
         </div>
       </div>
@@ -53,7 +60,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };
