@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -53,16 +54,12 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = {
-  movie: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    storyline: PropTypes.string,
-    imagePath: PropTypes.string,
-    rating: PropTypes.number,
-  }).isRequired,
-  isLoading: PropTypes.bool,
-  notFound: PropTypes.bool,
-};
-
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

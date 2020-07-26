@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-} from 'react-router-dom';
-import MovieList from './pages/MovieList';
-import NewMovie from './pages/NewMovie';
-import MovieDetails from './pages/MovieDetails';
-import EditMovie from './pages/EditMovie';
-import NotFound from './pages/NotFound';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { MovieDetails, MovieList, EditMovie, NewMovie, NotFound } from './pages/index';
 
 function App() {
   return (

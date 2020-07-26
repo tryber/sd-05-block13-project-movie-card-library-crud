@@ -3,20 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     idProcurado: props.match.params.idProcurado,
-  //   }
-  // }
-
   render() {
     const { movie } = this.props;
-    const { title, subtitle, storyline, rating, imagePath, id } = movie;
-    // const idProcurado = this.props.match.params.idProcurado;
-
-    // if (idProcurado) return <h2>Olá Detalhes</h2>
-
+    const { title, subtitle, storyline, imagePath, id } = movie;
+    
     return (
       <div data-testid="movie-card">
         <div className="movie-card">
@@ -25,7 +15,6 @@ class MovieCard extends React.Component {
             <h4 className="movie-card-title">{title}</h4>
             <h5 className="movie-card-subtitle">{subtitle}</h5>
             <p className="movie-card-storyline">{storyline}</p>
-            <span className="rating">{rating}</span>
           </div>
         </div>
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
@@ -34,14 +23,13 @@ class MovieCard extends React.Component {
   }
 }
 
+export default MovieCard;
+
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    storyline: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    storyline: PropTypes.string.isRequired,
     imagePath: PropTypes.string,
-    rating: PropTypes.number,
   }).isRequired,
 };
-
-export default MovieCard;
