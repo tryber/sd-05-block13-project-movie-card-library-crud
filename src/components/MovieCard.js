@@ -1,8 +1,5 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom'
-
-import MovieDetails from '../pages/MovieDetails';
-
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
@@ -15,10 +12,13 @@ class MovieCard extends React.Component {
           <p className="storyline-card">{storyline}</p>
         </div>
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
-        <Route path={`/movies/${id}`} component={MovieDetails} />
       </div>
     );
   }
 }
+
+// MovieCard.prototype = 
+
+// }
 
 export default MovieCard;
