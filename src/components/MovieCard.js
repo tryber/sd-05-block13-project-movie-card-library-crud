@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props
+    const { movie } = this.props;
     const { title, storyline, id } = movie;
     return (
       <div data-testid="movie-card">
@@ -14,5 +14,12 @@ class MovieCard extends React.Component {
     );
   }
 }
+MovieCard.protoTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    storyline: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default MovieCard;
