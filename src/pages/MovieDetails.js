@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Prompt } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
-import { Loading, MovieForm } from '../components';
+import { Loading } from '../components';
+import EditMovie from './EditMovie';
 // import movies from '../components/data';
 
 class MovieDetails extends Component {
@@ -10,38 +11,38 @@ class MovieDetails extends Component {
     this.state = {
       movie: '',
       loading: true,
-      shouldRedirect: false,
-      status: false,
+      id: this.props.match.params.id,
+      path: this.props.location.pathname,
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const { id } = this.state;
     movieAPI.getMovie(id)
       .then((movie) => this.setState({ movie, loading: false }));
-   
   }
 
   handleSubmit(newMovie) {
-  const id = this.props.match.params.id;
-  
-    movieAPI.updateMovie(newMovie)
-    .then((response) => this.setState({ shouldRedirect: true, status: response }));
-    movieAPI.getMovie(id)
-      .then((movie) => { this.setState({ movie, loading: false }); console.log(movie)});
+    // const resposta = prompt('Você tem certeza que deseja apagar este  MovieCard?')
+    // console.log(resposta)
+   movieAPI.deleteMovie(newMovie)
+   .then(() => this.setState({ shouldRedirect: true }))
   }
 
-  
   render() {
-    const { shouldRedirect, movie, loading , status} = this.state; // movieAPI; // acrescentei aqui
-    const id = this.props.match.params.id;
+    const { movie, loading, id, shouldRedirect } = this.state; // movieAPI; // acrescentei aqui
     const path = this.props.location.pathname;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     // Change the condition to check the state
     if (loading) return <Loading />;
-    if (path === `/movies/${id}/edit` && !status) return <MovieForm onSubmit={this.handleSubmit} movie={movie} />;
-    if (shouldRedirect) return <Redirect to={`/movies/${id}`} />;
+    if (path === `/movies/${id}/edit`) {
+      return <EditMovie  movie={movie} />;
+    }
+
+    if (shouldRedirect) {
+      return <Redirect to="/" />
+    }
 
     return (
       <div data-testid="movie-details">
@@ -52,9 +53,9 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        {/* <Route path={`/movies/${id}/edit`} render={ (props) => <MovieForm {...props}/> }/> */}
+        <Link to="/" onClick={() => this.handleSubmit(id)}  >DELETAR</Link>
+
         <Link to="/">VOLTAR</Link>
-        {/* // acrescentei aqui */}
       </div>
     );
   }
