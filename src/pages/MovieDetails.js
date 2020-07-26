@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
-import { Loading } from '../components';
-import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { Link, Redirect } from 'react-router-dom';
+import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
@@ -32,12 +31,9 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     const { isLoading, notFound, id } = this.state;
-
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
-    
-    if (isLoading) return <Loading />
-    if (notFound) return <Redirect to="/404-error" />
-
+    if (isLoading) return <Loading />;
+    if (notFound) return <Redirect to="/404-error" />;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
