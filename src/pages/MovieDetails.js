@@ -20,7 +20,7 @@ class MovieDetails extends Component {
           movie: response,
           loading: false,
         });
-      })
+      });
   }
   render() {
     const { loading } = this.state;

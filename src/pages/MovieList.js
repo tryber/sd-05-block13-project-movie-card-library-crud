@@ -21,11 +21,11 @@ class MovieList extends Component {
           movies: response,
           loading: true,
         });
-      })
-  };
+      });
+  }
 
   render() {
-    const { movies, loading } = this.state;
+    const {loading } = this.state;
     if (!loading) return <Loading />;
     return (
       <div data-testid="movie-list">
