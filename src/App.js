@@ -8,11 +8,10 @@ function App() {
     <BrowserRouter>
       <div>Movie Card Library CRUUD</div>
       <Switch>
+        <Route exact path="/movies/:id" component={MovieDetails} />
         <Route exact path="/" component={MovieList} />
         <Route path="/movies" component={MovieList} />
-        
       </Switch>
-      
     </BrowserRouter>
   );
 }

@@ -15,18 +15,15 @@ class MovieList extends Component {
   componentDidMount() {
     movieAPI.getMovies()
       .then((response) => {
-        // console.log(response);
         this.setState({
           movies: response,
           isLoaded: true,
         });
-        // console.log(this.state.movies);
       });
   }
 
   render() {
     const { movies } = this.state;
-    // console.log(movies)
     // Render Loading here if the request is still happening
     if (!this.state.isLoaded) return (<Loading />);
     return (

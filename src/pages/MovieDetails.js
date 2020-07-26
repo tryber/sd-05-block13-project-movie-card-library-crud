@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -9,25 +8,23 @@ class MovieDetails extends Component {
     this.state = {
       isLoaded: false,
       movieId: this.props.match.params.id,
+      movie: '',
     };
   }
+
   componentDidMount() {
     movieAPI.getMovie(this.state.movieId)
       .then((response) => {
-        console.log(response)
         this.setState({
           isLoaded: true,
-        })
-        console.log(this.props.movie)
+          movie: response,
+        });
       });
   }
-  
-  render() {
-    // Change the condition to check the state
-    if (!this.state.isLoaded) return <Loading />;
 
-    const { id, storyline, imagePath, genre, rating, subtitle } = this.props.movie;
-    
+  render() {
+    const { storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    if (!this.state.isLoaded) return <Loading />;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
