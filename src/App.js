@@ -9,13 +9,11 @@ import NotFound from './pages/NotFound';
 function App() {
   return (
     <BrowserRouter>
-      <Route exact path="/">
-        <MovieList />
-      </Route>
+      <Route exact path="/" component={MovieList} />
       <Route exact path="/movies/:id" component={MovieDetails} />
-      <Route path="/movies/new" component={NewMovie} />
+      <Route exact path="/movies/new" component={NewMovie} />
       <Route path="/movies/:id/edit" component={EditMovie} />
-      <Route path="/404-error "component={NotFound} />
+      <Route path="/:error" component={NotFound} />
     </BrowserRouter>
   );
 }
