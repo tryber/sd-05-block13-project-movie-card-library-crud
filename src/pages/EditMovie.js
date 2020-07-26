@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+// import { Redirect } from 'react-router-dom';
 import { MovieForm, Loading } from '../components';
-import * as movieAPI from '../services/movieAPI';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
@@ -58,7 +58,7 @@ EditMovie.propTypes = {
   }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }).isRequired
+  }).isRequired,
 };
 
 export default EditMovie;
