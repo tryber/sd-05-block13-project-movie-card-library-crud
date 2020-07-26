@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import NotFound from './NotFound';
 import * as movieAPI from '../services/movieAPI';
@@ -59,5 +60,13 @@ class MovieDetails extends Component {
   /* Pq nao rolou <Redirection to ="movies/404-error">? */
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;
