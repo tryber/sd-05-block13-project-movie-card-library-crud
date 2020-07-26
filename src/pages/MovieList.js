@@ -16,8 +16,7 @@ class MovieList extends Component {
       this.setState({
         movies: arrMovies,
         isLoading: false,
-      })
-    );
+      }));
   }
   render() {
     const { movies, isLoading } = this.state;
