@@ -20,11 +20,11 @@ class MovieList extends Component {
     movieAPI.getMovies()
     // .then(movies => console.log(resposta))
     .then((movies) => this.setState({ movies, loading: false }), (error) => {
-          this.setState({
-            loading: true,
-            error
-          });
-        });
+      this.setState({
+        loading: true,
+        error,
+      });
+    });
   }
 
   update(newData) { this.setState({ movies: newData, loading: false }); }
@@ -44,7 +44,7 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => (
-          <div>
+          <div key={movie.id}>
             <MovieCard movie={movie} />
             {/* acrescentei aqui em cima */}
           </div>))
