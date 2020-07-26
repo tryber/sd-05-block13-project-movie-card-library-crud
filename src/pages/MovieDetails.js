@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { Loading } from '../components';
-import BrowserRoute, { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
@@ -54,9 +54,15 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    storyline: PropTypes.string,
+    imagePath: PropTypes.string,
+    rating: PropTypes.number,
+  }).isRequired,
   isLoading: PropTypes.bool,
-  notFound: PropTypes.bool,  
-}
+  notFound: PropTypes.bool,
+};
 
 export default MovieDetails;
