@@ -276,7 +276,7 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
 })
 
 describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
-  it.skip('should exist a new movie link @ home', async () => {
+  it('should exist a new movie link @ home', async () => {
     const { unmount } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     const addMovie = screen.getByText('ADICIONAR CARTÃO');
@@ -284,7 +284,7 @@ describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos 
     expect(addMovie.href).toBe('http://localhost/movies/new');
     unmount();
   })
-  it.skip('should create a new movie', async () => {
+  it('should create a new movie', async () => {
     await cleanup();
     renderPath('/movies/new')
 
@@ -317,7 +317,7 @@ describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos 
 })
 
 describe('Bônus: Adicione um link para deletar um cartão em MovieDetails', () => {
-  it.skip('movie details should have delete button', async () => {
+  it('movie details should have delete button', async () => {
     for (const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));
@@ -327,7 +327,7 @@ describe('Bônus: Adicione um link para deletar um cartão em MovieDetails', () 
     }
   })
 
-  it.skip('delete button should delete a movie', async () => {
+  it('delete button should delete a movie', async () => {
     resetStorage();
     const deletedMovie = readMovies()[2];
     renderPath('/movies/3');
