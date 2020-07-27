@@ -16,12 +16,12 @@ function App() {
       </header>
       {/* ADICIONAR CARTÃO */}
       <Switch>
-        <Route exact path="/" component={MovieList}/>
-        <Route path="/movies/new" render={(props) => <NewMovie {...props} movie={newMovie}/>}/>
-        <Route path="/movies/:id" component={MovieDetails}/>
-        <Route path="/movies/:id/edit" component={EditMovie}/>
-        <Route path="/movies/" render={(props) => <MovieDetails {...props}/>}/>
-        <Route path="*" component={NotFound}/>
+        <Route exact path="/" component={MovieList} />
+        <Route path="/movies/new" render={(props) => <NewMovie {...props} movie={newMovie} />} />
+        <Route path="/movies/:id" component={MovieDetails} />
+        <Route path="/movies/:id/edit" component={EditMovie} />
+        <Route path="/movies/" render={(props) => <MovieDetails {...props} />} />
+        <Route path="*" component={NotFound} />
 
       </Switch>
     </BrowserRouter>
