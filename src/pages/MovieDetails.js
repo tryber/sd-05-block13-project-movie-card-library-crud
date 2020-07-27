@@ -43,8 +43,8 @@ class MovieDetails extends Component {
           </div>
         </section>
       );
-      return null
     }
+    return null;
   }
 }
 
