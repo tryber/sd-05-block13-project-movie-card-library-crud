@@ -22,16 +22,18 @@ class NewMovie extends Component {
     if (redirect) return (<Redirect to="/" />);
     return (
       <div data-testid="new-movie">
-        <MovieForm movie={{
-          id: '',
-          title: '',
-          subtitle: '',
-          storyline: '',
-          rating: '',
-          imagePath: '',
-          bookmarked: '',
-          genre: '',}} 
-        onSubmit={this.handleSubmit} />
+        <MovieForm 
+          movie={{
+            id: '',
+            title: '',
+            subtitle: '',
+            storyline: '',
+            rating: '',
+            imagePath: '',
+            bookmarked: '',
+            genre: ''
+        }} 
+          onSubmit={this.handleSubmit} />
       </div>
     );
   }
