@@ -33,7 +33,8 @@ class NewMovie extends Component {
             bookmarked: '',
             genre: '',
           }}
-          onSubmit={this.handleSubmit} />
+          onSubmit={this.handleSubmit} 
+        />
       </div>
     );
   }
