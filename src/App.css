@@ -12,10 +12,6 @@ header {
   text-align: center;
 }
 
-.mainContain {
- /*  display: flex; */
-}
-
 div {
   border: 1px solid red;
 }
