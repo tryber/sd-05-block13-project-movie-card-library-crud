@@ -4,6 +4,8 @@ import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
+import NotFound from './pages/NotFound';
+import newMovie from './components/card0';
 
 function App() {
   return (
@@ -15,10 +17,12 @@ function App() {
       {/* ADICIONAR CARTÃO */}
       <Switch>
         <Route  exact path="/" component={MovieList}/>
-        <Route  path="/movies/new" render={ (props) => <NewMovie {...props}/>}/>
+  <Route  path="/movies/new" render={ (props) => <NewMovie {...props} movie={newMovie}/>} />
         <Route  path="/movies/:id" component={MovieDetails}/>
         <Route  path="/movies/:id/edit" component={EditMovie}/>        
         <Route  path="/movies/" render={ (props) => <MovieDetails {...props} />}></Route>
+        <Route  path="*" component={NotFound}></Route>
+
       </Switch>
     </BrowserRouter>
   );

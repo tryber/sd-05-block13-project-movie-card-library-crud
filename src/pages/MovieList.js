@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 // import movies from '../components/data';
@@ -5,6 +6,7 @@ import * as movieAPI from '../services/movieAPI';
 // import { Link } from 'react-router-dom';
 import { Loading } from '../components';
 import MovieDetails from './MovieDetails';
+
 
 class MovieList extends Component {
   constructor(props) {
@@ -55,3 +57,9 @@ class MovieList extends Component {
 }
 
 export default MovieList;
+
+MovieList.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.isRequired,
+  }).isRequired,
+};
