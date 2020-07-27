@@ -22,7 +22,7 @@ class MovieDetails extends Component {
 
   handleClick() {
     const id = this.props.match.params.id;
-    movieAPI.deleteMovie(id).then(this.setState({ redirect: true }));
+    movieAPI.deleteMovie(id);
   }
 
   render() {
