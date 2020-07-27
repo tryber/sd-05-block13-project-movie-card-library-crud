@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
-import { Link } from 'react-router-dom';
 
 class MovieList extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class MovieList extends Component {
     this.state = {
       movies: undefined,
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -24,7 +25,7 @@ class MovieList extends Component {
     const { movies, loading } = this.state;
 
     if (loading) {
-      return (<Loading />)
+      return (<Loading />);
     } 
     return (
       <div>

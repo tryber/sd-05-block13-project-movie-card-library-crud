@@ -32,7 +32,7 @@ class EditMovie extends Component {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       // Redirect
-      return (<Redirect to="/" />)
+      return (<Redirect to="/" />);
     }
 
     if (status === 'loading') {
@@ -54,9 +54,9 @@ EditMovie.propTypes = {
       params: PropTypes.shape(
         {
           id: PropTypes.string.isRequired,
-        }
+        },
       ).isRequired,
-    }
+    },
   ).isRequired,
 };
 
