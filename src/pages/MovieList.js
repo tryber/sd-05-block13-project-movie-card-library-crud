@@ -26,7 +26,8 @@ class MovieList extends Component {
 
     if (loading) {
       return (<Loading />);
-    } 
+    }
+
     return (
       <div>
         <div data-testid="movie-list">
