@@ -127,13 +127,13 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
 });
 
 describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição para buscar a lista de filmes a ser renderizada', () => {
-  test.skip('should have a loading screen', async () => {
+  test('should have a loading screen', async () => {
     const { container, unmount, getByText } = renderPath('/');
     expect(getByText('Carregando...'));
     await waitFor(() => movieAPI.getMovies())
     unmount();
   })
-  test.skip('should find all cards from API', async () => {
+  test('should find all cards from API', async () => {
     const { unmount, getAllByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     expect(getAllByTestId('movie-card').length).toBe(5);
@@ -142,7 +142,7 @@ describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição 
 });
 
 describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
-  test.skip('each card should have at least its movies title and synopsis', async () => {
+  test('each card should have at least its movies title and synopsis', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     expect(screen.getAllByTestId('movie-card').length).toBe(5);
@@ -152,7 +152,7 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
     })
     unmount();
   })
-  test.skip('VER DETALHES should link to movie page', async () => {
+  test('VER DETALHES should link to movie page', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     getAllByText('VER DETALHES').forEach((link, index) => {
@@ -164,7 +164,7 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
 
 describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
 
-  it.skip('each movie details page should have a loading screen', () => {
+  it('each movie details page should have a loading screen', () => {
     readMovies().forEach(async (movie) => {
       await cleanup();
       const { getByText } = renderPath('/movies/' + movie.id);
@@ -172,7 +172,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
     });
   });
 
-  it.skip('each edit movie page should contain its movie info', async () => {
+  it('each edit movie page should contain its movie info', async () => {
     for (const movie of readMovies()) {
       const { container, unmount } = renderPath(`/movies/${movie.id}`);
       await waitFor(() => movieAPI.getMovie(movie.id))
@@ -188,7 +188,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
     }
   });
 
-  it.skip('each movie details page should have a back button', async () => {
+  it('each movie details page should have a back button', async () => {
     for (const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));
@@ -198,7 +198,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
     }
   });
 
-  it.skip('each movie details page should have a edit button', async () => {
+  it('each movie details page should have a edit button', async () => {
     for (const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovie(movie.id));
@@ -211,7 +211,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
 
 describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
 
-  it.skip('each edit movie page should have a loading screen', async () => {
+  it('each edit movie page should have a loading screen', async () => {
     for (const movie of readMovies()) {
       await cleanup();
       const { unmount, getByText } = renderPath(`/movies/${movie.id}/edit`);
@@ -220,7 +220,7 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
     }
   });
 
-  it.skip('each edit movie page should have a form filled with current movie info', async () => {
+  it('each edit movie page should have a form filled with current movie info', async () => {
     for (const movie of readMovies()) {
       const { container, unmount, getByText, getAllByText, getByAltText, getByDisplayValue, getAllByDisplayValue } = renderPath(`/movies/${movie.id}/edit`);
       await waitFor(() => movieAPI.getMovie(movie.id - 1))
@@ -234,7 +234,7 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
   });
 
 
-  it.skip('each edit page form should update movie', async () => {
+  it('each edit page form should update movie', async () => {
     for (const movie of readMovies()) {
       await cleanup();
       const { container, getByLabelText, getByRole } = renderPath(`/movies/${movie.id}/edit`)
