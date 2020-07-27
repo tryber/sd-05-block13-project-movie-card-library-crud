@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -153,5 +152,6 @@ class MovieForm extends React.Component {
     );
   }
 }
+
 
 export default MovieForm;
