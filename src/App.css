@@ -1,5 +1,17 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgba(231, 227, 227, 0.5);
   box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
 }
 
+header {
+  background-color: rgba(25, 136, 25, 0.924);
+  font-size: 30px;
+  padding: 15px;
+  text-align: center;
+}
+
+div {
+  border: 1px solid red;
+}
