@@ -30,7 +30,7 @@ class MovieList extends Component {
           </div>
         </Link>
         <div>
-          <Link to="/movies/new"><h1>ADICIONAR CARTÃO</h1></Link>
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         </div>
       </div>
     );

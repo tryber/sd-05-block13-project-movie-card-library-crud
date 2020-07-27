@@ -20,17 +20,18 @@ class MovieDetails extends Component {
   render() {
     if (this.state.movie === '') return <Loading />;
 
-    const { storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
+    const { storyline, imagePath, genre, rating, subtitle, id, title } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
+        <p>{`Título: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to={`${id}/edit`}><p>EDITAR</p></Link>
-        <Link to={'/'}><p>VOLTAR</p></Link>
+        <Link to={`${id}/edit`}>EDITAR</Link>
+        <Link to={'/'}>VOLTAR</Link>
         <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>
           DELETAR
         </Link>
