@@ -1,4 +1,6 @@
 import React from 'react';
+// import MovieDetails from '../pages/MovieDetails';
+// import * as movieAPI from '../services/movieAPI';
 import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
@@ -155,3 +157,15 @@ class MovieForm extends React.Component {
 }
 
 export default MovieForm;
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    imagePath: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
