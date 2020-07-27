@@ -26,19 +26,14 @@ class NewMovie extends Component {
 //    }, 1000);
 //  });
 // };
-
 // ----------------------------
 
   handleSubmit(newMovie) {
-    movieAPI.createMovie(newMovie).then(this.setState({ shouldRedirect: true }));
+    movieAPI.createMovie(newMovie).then(() => this.setState({ shouldRedirect: true }));
   }
-
+  
   render() {
-    const { shouldRedirect } = this.state;
-
-    if (shouldRedirect) {
-      return <Redirect to="/" />;
-    }
+    if(this.state.shouldRedirect) return <Redirect to="/" />;
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
@@ -46,4 +41,5 @@ class NewMovie extends Component {
     );
   }
 }
+
 export default NewMovie;
