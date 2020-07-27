@@ -43,27 +43,24 @@ class MovieDetails extends Component {
     //   return <Redirect to="*" />
     // }
 
-    if (!id) {
-      return <NotFound />;
-    }
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     // Change the condition to check the state
     if (shouldRedirect) return <Redirect to="/" />;
     if (loading) return <Loading />;
     if (path === `/movies/${id}/edit`) return <EditMovie movie={movie} />;
-
-    return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Título: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link to="/" onClick={() => this.handleSubmit(id)}>DELETAR</Link>
-        <Link to="/">VOLTAR</Link>
-      </div>
+    return (!id) ? <NotFound /> :
+      (
+        <div data-testid="movie-details">
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Título: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link to="/" onClick={() => this.handleSubmit(id)}>DELETAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
     );
   }
 }
