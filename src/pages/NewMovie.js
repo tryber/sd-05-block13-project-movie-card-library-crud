@@ -22,7 +22,7 @@ class NewMovie extends Component {
     if (redirect) return (<Redirect to="/" />);
     return (
       <div data-testid="new-movie">
-        <MovieForm 
+        <MovieForm
           movie={{
             id: '',
             title: '',
@@ -31,8 +31,8 @@ class NewMovie extends Component {
             rating: '',
             imagePath: '',
             bookmarked: '',
-            genre: ''
-        }} 
+            genre: '',
+          }}
           onSubmit={this.handleSubmit} />
       </div>
     );
