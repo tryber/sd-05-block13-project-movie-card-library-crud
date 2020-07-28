@@ -5,5 +5,5 @@ class NotFound extends Component {
     return <div data-testid="404-error">Página não encontrada</div>;
   }
 }
-
+// não sei onde usar
 export default NotFound;
