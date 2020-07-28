@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movie: "",
+      isLoading: true,
+    }
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params
+    movieAPI.getMovie(id).then(films => this.setState({movie: films, isLoading: false}));
+  }
+
   render() {
+    const { movie } = this.state;
     // Change the condition to check the state
-    if (true) return <Loading />;
+    if(this.state.isLoading) {
+      return <Loading />
+    }
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
