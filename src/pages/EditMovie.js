@@ -17,7 +17,7 @@ class EditMovie extends Component {
  
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then(films => this.setState({ (movie): films, isLoading: false }));
+    movieAPI.getMovie(id).then(films => this.setState({ movie: films, isLoading: false }));
   }
   
   handleSubmit(updatedMovie) {
