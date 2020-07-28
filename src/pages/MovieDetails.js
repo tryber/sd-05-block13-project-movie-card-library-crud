@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -9,16 +9,13 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       isLoading: true,
-    }
+    };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id).then((movie) => {
-      this.setState({
-        movie: movie,
-        isLoading: false,
-      });
+      this.setState({ movie, isLoading: false });
     });
   }
 
