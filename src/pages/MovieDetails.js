@@ -7,21 +7,21 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: "",
+      movie: '',
       isLoading: true,
-    }
+    };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then(films => this.setState({movie: films, isLoading: false}));
+    movieAPI.getMovie(id).then((films) => this.setState({ movie: films, isLoading: false }));
   }
 
   render() {
     const { movie } = this.state;
     // Change the condition to check the state
-    if(this.state.isLoading) {
-      return <Loading />
+    if (this.state.isLoading) {
+      return <Loading />;
     }
 
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
@@ -35,7 +35,7 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
-        <button><Link to={`/`}>VOLTAR</Link></button>
+        <button><Link to="/">VOLTAR</Link></button>
       </div>
     );
   }
