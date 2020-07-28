@@ -10,7 +10,7 @@ class MovieCard extends React.Component {
         <h4>{title}</h4>
         <h3>{subtitle}</h3>
         <p>{storyline}</p>
-        <img src={imagePath} />
+        <img src={imagePath} alt="layout" />
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
         <p>{rating}</p>
       </div>
@@ -29,4 +29,4 @@ MovieCard.propTypes = {
     id: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
   }).isRequired,
-}
+};

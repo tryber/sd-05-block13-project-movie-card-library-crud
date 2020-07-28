@@ -50,4 +50,4 @@ MovieDetails.propTypes = {
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
