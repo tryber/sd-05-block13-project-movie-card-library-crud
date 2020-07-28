@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -13,7 +13,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params
+    const { id } = this.props.match.params;
     movieAPI.getMovie(id).then(films => this.setState({movie: films, isLoading: false}));
   }
 
@@ -24,15 +24,18 @@ class MovieDetails extends Component {
       return <Loading />
     }
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
+        <p>{`Title: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
+        <button><Link to={`/`}>VOLTAR</Link></button>
       </div>
     );
   }
