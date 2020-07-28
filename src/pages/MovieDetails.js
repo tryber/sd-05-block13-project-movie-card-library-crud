@@ -41,10 +41,8 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.PropTypes = {
-  match: {
-    params: {
-      id: PropTypes.string,
-    },
+  params: {
+    id: React.PropTypes.string.isRequired,
   },
 };
 
