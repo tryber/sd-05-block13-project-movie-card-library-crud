@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      movie: '',
+    }
+  }
   render() {
-    if (true) return <Loading />;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-
+    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -20,5 +22,4 @@ class MovieDetails extends Component {
     );
   }
 }
-
 export default MovieDetails;

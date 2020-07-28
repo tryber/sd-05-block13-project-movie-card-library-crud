@@ -41,6 +41,8 @@ label: 'Gênero', entrada: tag <select>, com as seguintes opções:
 <option value="comedy">Comédia</option>
 <option value="thriller">Suspense</option>
 <option value="fantasy">Fantasia</option>
-label: 'Avaliação', entrada: tag <input>, de tipo 'number' com valores que vão de 0 (mínimo) a 5 (máximo), com um step de 0.1. */
+label: 'Avaliação', entrada: tag <input>, 
+de tipo 'number' com valores que vão de 0 (mínimo)
+a 5 (máximo), com um step de 0.1. */
 
 export default EditMovie;
