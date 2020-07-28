@@ -8,11 +8,11 @@ function App() {
     <BrowserRouter>
       <h1>Movie Cards Library CRUD</h1>
       <Switch>
-        <Route path="/movies/new" component={NewMovie} />
+        <Route exact path="/" component={MovieList} />
+        <Route exact path="/movies/new" component={NewMovie} />
         <Route path="/movies/:id/edit" component={EditMovie} />
-        <Route path="/" component={MovieList} />
-        <Route path="/404-error" component={NotFound} />
         <Route path="/movies/:id" component={MovieDetails} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
