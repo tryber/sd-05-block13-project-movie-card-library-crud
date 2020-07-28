@@ -8,7 +8,7 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: '',
+      movie: [],
       loading: true,
     };
   }
@@ -38,7 +38,7 @@ class MovieDetails extends Component {
         </div>
         <div>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-          <Link to="/">Voltar</Link>
+          <Link to="/">VOLTAR</Link>
         </div>
       </section>
     );

@@ -11,7 +11,7 @@ class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: '',
+      movies: [],
       loading: false,
     };
   }
