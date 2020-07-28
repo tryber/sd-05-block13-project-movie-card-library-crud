@@ -39,4 +39,12 @@ class MovieDetails extends Component {
   }
 }
 
+MovieDetails.propTypes = {
+  match: {
+    params: {
+      id: PropTypes.string,
+    }
+  }
+}
+
 export default MovieDetails;
