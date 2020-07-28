@@ -3,10 +3,8 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import PropTypes from 'prop-types';
 
-
 class MovieDetails extends Component {
   render() {
-    // Change the condition to check the state
     if (true) return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
