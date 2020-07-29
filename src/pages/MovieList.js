@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
-import PropTypes from 'prop-types';
 import MovieDetails from './MovieDetails';
-import { Loading } from '../components';
+// import { Loading } from '../components';
 
 class MovieList extends Component {
   constructor(props) {
@@ -16,41 +16,41 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovies()
-      .then((movies) => this.setState({
-        movies,
-        loading: false,
-      }),
+    movieAPI.getMovies().then(
+      (movies) =>
+        this.setState({
+          movies,
+          loading: false,
+        }),
       (error) => {
         this.setState({
           loading: true,
           error,
-        })
-      })
+        });
+      }
+    );
   }
 
-  update(newData) {this.setState({
-    movies: newData,
-    loading: false,
-  })}
+  update(newData) {
+    this.setState({
+      movies: newData,
+      loading: false,
+    });
+  }
 
   render() {
     const { movies, loading } = this.state;
     const id = this.props.match.params.id;
 
-    if (id) return(
-      <MovieDetails id={id} />
-    )
+    if (id) return <MovieDetails id={id} />;
 
-    if (loading) return (
-      <loading />
-    )
+    if (loading) return <loading />;
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => (
           <div key={movie.id}>
             <MovieCard key={movie.title} movie={movie} />
-            </div>
+          </div>
         ))}
       </div>
     );
