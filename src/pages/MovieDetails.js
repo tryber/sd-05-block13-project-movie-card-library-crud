@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
+
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,7 @@ class MovieDetails extends Component {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id)
       .then((movie) => {
-        this.setState({ movie, isLoading: false })
+        this.setState({ movie, isLoading: false });
       }).catch(() => this.setState({ isLoading: false, notFound: true }));
   }
 
