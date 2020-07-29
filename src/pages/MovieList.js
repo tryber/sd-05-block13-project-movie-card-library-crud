@@ -6,7 +6,9 @@ class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: null,
+      movies: '',
+      loading: true,
+      error: '',
     };
   }
 
