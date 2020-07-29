@@ -19,11 +19,11 @@ class MovieDetails extends Component {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id)
       .then((film) => this.setState({ movie: film, isLoading: false }))
-      .catch(() => this.setState({ isLoading: false, notFound: true }))
+      .catch(() => this.setState({ isLoading: false, notFound: true }));
   }
 
   render() {
-    const { movie, notFound } = this.state;
+    const { movie } = this.state;
     if (this.state.isLoading) {
       return <Loading />;
     }
