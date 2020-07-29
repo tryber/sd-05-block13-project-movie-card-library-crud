@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+// import { Loading } from '../components';
 // import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
@@ -13,16 +13,7 @@ class MovieDetails extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      movie,
-      loaded: false,
-    });
-  }
-
   render() {
-    const { loaded } = this.state;
-    if (loaded) return <Loading />;
     const { storyline, imagePath, genre, rating, subtitle } = movie;
     return (
       <div data-testid="movie-details">
