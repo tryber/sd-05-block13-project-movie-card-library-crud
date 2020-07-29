@@ -13,13 +13,13 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovies().then(films => this.setState({movies: films, isLoading: false}))
+    movieAPI.getMovies().then((films) => this.setState({ movies: films, isLoading: false }));
   }
 
   render() {
     const { movies } = this.state;
-    if(this.state.isLoading) {
-      return <Loading />
+    if (this.state.isLoading) {
+      return <Loading />;
     }
 
     // Render Loading here if the request is still happening
