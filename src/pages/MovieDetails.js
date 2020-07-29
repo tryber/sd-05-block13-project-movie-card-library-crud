@@ -33,7 +33,7 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to={`/movies/${this.props.match.params.id}/edit`}>EDITAR</Link>
+        <Link to={`/movies/${this.props.match.params.id}/edit`}>EDITAR</Link><br />
         <Link to="/">VOLTAR</Link>
       </div>
     );
