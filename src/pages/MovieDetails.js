@@ -29,7 +29,7 @@ class MovieDetails extends Component {
     }
 
     if (this.state.notFound) {
-      return <Redirect to="/404-error" />
+      return <Redirect to="/404-error" />;
     }
 
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
