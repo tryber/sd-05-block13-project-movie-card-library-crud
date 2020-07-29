@@ -5,6 +5,7 @@ import MovieList from '../src/pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
 import EditMovie from './pages/EditMovie';
 import NewMovie from './pages/NewMovie';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/movies/:id/edit" component={EditMovie} />
         <Route path="/movies/:id" component={MovieDetails} />
         <Route path="/" component={MovieList} />
+        <NotFound />
       </Switch>
     </Router>
   );
