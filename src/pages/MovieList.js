@@ -9,7 +9,7 @@ class MovieList extends Component {
       movies: null,
     };
   }
- 
+
   render() {
     const { movies } = this.state;
     return (
