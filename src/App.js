@@ -11,9 +11,9 @@ function App() {
       <div>Movie Card Library CRUD
           <Switch>
             <Route exact path="/" component={MovieList}>Lista de Filmes</Route>
-            <Route path="/movies/:id" component={MovieDetails}>Detalhes do Filme</Route>
             <Route path="/movies/new" component={NewMovie}>Novo Filme</Route>
             <Route path="/movies/:id/edit" component={EditMovie}>Editar Filme</Route>
+            <Route path="/movies/:id" component={MovieDetails}>Detalhes do Filme</Route>
           </Switch>
       </div>
     </Router>
