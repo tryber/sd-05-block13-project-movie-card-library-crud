@@ -40,7 +40,7 @@ class EditMovie extends Component {
     }
 
     if (status) {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
@@ -53,10 +53,9 @@ class EditMovie extends Component {
 
 EditMovie.PropType = {
   match: PropType.shape({
-    params: PropType.shape({
-      id: PropType.any.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
+    params: PropType.any
+  })
+    .isRequired
+}
 
 export default EditMovie;
