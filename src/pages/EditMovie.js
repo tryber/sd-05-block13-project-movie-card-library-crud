@@ -10,7 +10,7 @@ class EditMovie extends Component {
     this.state = {
       shouldRedirect: false,
       status: true,
-      movie: '',
+      movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
