@@ -21,23 +21,23 @@ class EditMovie extends Component {
       .then((movie) => {
         this.setState({
           movie,
-          status: false
-        })
-      })
+          status: false,
+        });
+      });
   }
 
 
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie)
       .then(() => {
-        this.setState({ shouldRedirect: true })
-      })
+        this.setState({ shouldRedirect: true });
+      });
   }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     if (status) {
@@ -52,12 +52,12 @@ class EditMovie extends Component {
   }
 }
 
-export default EditMovie;
-
 EditMovie.PropType = {
   match: PropType.shape({
     params: PropType.shape({
       id: PropType.string.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
+
+export default EditMovie;
