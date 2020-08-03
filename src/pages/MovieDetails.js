@@ -24,7 +24,7 @@ class MovieDetails extends Component {
     const { movie } = this.state;
     if (this.state.isLoading) {
       return (
-       <Loading />
+        <Loading />
       );
     }
     if (this.state.notFound) {
