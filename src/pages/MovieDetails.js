@@ -22,11 +22,11 @@ class MovieDetails extends Component {
   }
   render() {
     const { movie } = this.state;
-      if (this.state.isLoading) {
-        return (
-        <Loading />
-        );
-      }
+    if (this.state.isLoading) {
+      return (
+       <Loading />
+      );
+    }
     if (this.state.notFound) {
       return <Redirect to="/404-error" />;
     }
