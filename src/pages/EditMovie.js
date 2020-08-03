@@ -21,22 +21,19 @@ class EditMovie extends Component {
     movieAPI.getMovie(id).then((movie) => this.setState({ movie, isLoading: false }));
   }
   handleSubmit(updatedMovie) {
-    movieAPI.updateMovie(updatedMovie).then(() => this.setState({shouldRedirect: true}));
+    movieAPI.updateMovie(updatedMovie).then(() => this.setState({ shouldRedirect: true }));
   }
-  
   render() {
     const { isLoading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />
-    }
-
-    if(isLoading === true) {
+    };
+    if (isLoading === true) {
       return (
         <Loading />
       );
     }
-    
-    return (
+        return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>
