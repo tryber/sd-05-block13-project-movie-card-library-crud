@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -153,5 +153,16 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.defaultProps = {
+  movie: {
+    id: 0,
+    title: '',
+    storyline: '',
+    rating: 0,
+    imagePath: '',
+    genre: '',
+  },
+};
 
 export default MovieForm;
