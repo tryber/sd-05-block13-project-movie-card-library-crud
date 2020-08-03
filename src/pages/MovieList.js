@@ -9,8 +9,8 @@ class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies = {},
-      loading = true,
+      movies: {},
+      loading: true,
     };    
   }
 
@@ -18,7 +18,7 @@ class MovieList extends Component {
     movieAPI.getMovies()
     .then((data) => this.setState({
       movies: data,
-      loading = false,
+      loading: false,
     }));
   }
 
