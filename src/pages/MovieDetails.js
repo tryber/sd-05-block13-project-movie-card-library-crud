@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Loading } from '../components';
 import PropTypes from 'prop-types';
-import NotFound from './NotFound';
 
 class MovieDetails extends Component {
   constructor(props){
     super(props);
     this.state = {
-      movie: '',
+      movie: [],
       isLoading: true,
-      movie: {},
       notFound: false,
-    }
+    };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((resp) => this.setState({
-      movie: resp,
-      isLoading: false,
-    }));
+    movieAPI.getMovie(id)
+      .then((film) => this.setState({ movie: film, isLoading: false }))
+      .catch(() => this.setState({ isLoading: false, notFound: true }));
   }
   
   render() {
-    const { isLoading } = this.state;
-      if(isLoading)
-    return (
-      <Loading />
-    );
-    if (this.state.movie !== undefined) {
-    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    const { movie } = this.state;
+      if(this.state.isLoading) {
+        return (
+          <Loading />
+        );
+      }
+    if (this.state.notFound) {
+      return <Redirect to="/404-error" />;
+    }
+  const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
     return (
       <div data-testid="movie-details">
+        <h2>{`Title: ${title}`}</h2>
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
@@ -45,14 +46,13 @@ class MovieDetails extends Component {
       </div>
     );
   }
-  return <NotFound />;
 }
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string,
-    }),
+      id: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

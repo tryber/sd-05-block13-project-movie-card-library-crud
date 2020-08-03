@@ -1,19 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { MovieDetails, MovieList, EditMovie, NewMovie, NotFound } from './pages/index';
 import './App.css';
-// import PropTypes from 'prop-types';
+import { NotFound } from './pages';
+import MovieDetails from './pages/MovieDetails';
+import MovieList from './pages/MovieList';
+import EditMovie from './pages/EditMovie';
+import NewMovie from './pages/NewMovie';
 
 function App() {
   return (
     <div>
       <div>Movie Card Library CRUD</div>
     <Router>
+    <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       <Switch>
-        <Route path="/movies/:id/edit" component={EditMovie} />
+        <Route exact path="/" component={MovieList} />
         <Route path="/movies/new" component={NewMovie} />
+        <Route path="/movies/:id/edit" component={EditMovie} />
         <Route path="/movies/:id" component={MovieDetails} />
-        <Route path="/" component={MovieList} />
         <Route component={NotFound} />
       </Switch>
     </Router>
