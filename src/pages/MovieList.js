@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
-import PropTypes from 'prop-types';
-import Loading from '../components/Loading';
+// import PropTypes from 'prop-types';
+import { Loading } from '../components';
 
 class MovieList extends Component {
   constructor(props) {
@@ -18,13 +18,14 @@ class MovieList extends Component {
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, isLoading } = this.state;
     if(this.state.isLoading)
     return (
       <Loading />
     )
     return (
-      <div data-testid="movie-list">
+      <div data-testid="movie-list" className="mainContain">
+        {isLoading && <Loading />}
         {movies.map((movie) => <MovieCard key={movie.title} movie={ movie } />)};
       </div>
     );

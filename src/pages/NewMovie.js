@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import MovieForm from '../components/MovieForm';
+import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 
 class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { changePage: false };
   }
 
   handleSubmit(newMovie) {
+    movieAPI.createMovie(newMovie)
+    .then(() => this.setState({ changePage: true }));
   }
 
   render() {
+    if (this.state.changePage) {
+      return <Redirect to="/" />;
+    }
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />

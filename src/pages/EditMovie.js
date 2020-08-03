@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
+import { Loading } from '../components';
 
 
 class EditMovie extends Component {
@@ -24,19 +25,20 @@ class EditMovie extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
      movieAPI.getMovie(id).then((movie) => this.setState({movie, isLoading: false}))
-   }
+  }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { isLoading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/"/>
     }
 
-    if(this.state.isLoading)
-    return (
-      <Loading />
-    );
-
+    if(isLoading === true) {
+      return (
+        <Loading />
+      );
+    }
+    
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
@@ -44,6 +46,14 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 /* label: 'Título', entrada: tag <input> de tipo 'text'
 label: 'Subtítulo', entrada: tag <input> de tipo 'text'
