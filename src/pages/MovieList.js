@@ -5,7 +5,6 @@ import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 
 import Loading from '../components/Loading';
-import movies from '../services/movieData';
 
 class MovieList extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class MovieList extends Component {
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, movies } = this.state;
     if (!loading) return <Loading />;
     return (
       <div data-testid="movie-list">
