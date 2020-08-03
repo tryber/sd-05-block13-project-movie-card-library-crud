@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
 import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
+import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class MovieDetails extends Component {
       loading: true,
       notFound: false,
     }
-  }
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -30,7 +29,7 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     const { loading, notFound, id } = this.state;
     if (loading) return <Loading />;
-    if (notFound) return <Redirect to="/404-error" />
+    if (notFound) return <Redirect to="/404-error" />;
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
