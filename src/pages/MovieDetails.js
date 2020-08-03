@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
- import * as movieAPI from '../services/movieAPI';
+import * as movieAPI from '../services/movieAPI';
 // import { Loading } from '../components';
 // import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
@@ -14,7 +14,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { storyline, imagePath, genre, rating, subtitle } = movieAPI.getMovie
+    const { storyline, imagePath, genre, rating, subtitle } = movieAPI.getMovie;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -27,4 +27,4 @@ class MovieDetails extends Component {
   }
 }
 
-export default MovieDetails; 
+export default MovieDetails;
