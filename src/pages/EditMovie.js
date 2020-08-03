@@ -26,14 +26,14 @@ class EditMovie extends Component {
   render() {
     const { isLoading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to="/" />
-    };
+      return <Redirect to="/" />;
+    }
     if (isLoading === true) {
       return (
         <Loading />
       );
     }
-        return (
+    return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>
