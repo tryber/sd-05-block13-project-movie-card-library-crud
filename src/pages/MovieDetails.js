@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import NotFound from '../pages/NotFound';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -18,7 +17,8 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovie(this.props.match.params.id)
+    const { id } = this.props.match.params;
+    movieAPI.getMovie(id)
       .then((movie) => this.setState({
         movies: movie,
         loading: false,
@@ -26,9 +26,8 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movies, loading, error } = this.state;
+    const { movies, loading } = this.state;
     if (loading) return <Loading />;
-    if (error) return <NotFound />;
 
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movies;
 
@@ -41,7 +40,7 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to={`/movies/${id}/edit`}> EDITAR</Link>
       </div>
     );
   }
