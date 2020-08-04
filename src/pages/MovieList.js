@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import MovieDetails from './MovieDetails';
-// import { Loading } from '../components';
+import { Loading } from '../components';
 
 class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: '',
+      movies: [],
       loading: true,
       error: '',
     };
@@ -39,12 +39,10 @@ class MovieList extends Component {
   }
 
   render() {
-    const { movies, loading } = this.state;
+    const { movies, Loading } = this.state;
     const id = this.props.match.params.id;
-
     if (id) return <MovieDetails id={id} />;
-
-    if (loading) return <loading />;
+    if (Loading) return <Loading />;
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => (
