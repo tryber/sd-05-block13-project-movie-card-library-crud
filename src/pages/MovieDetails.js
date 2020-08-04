@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link, Routes } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+// import { Link, Routes } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor(props){
-    super(props)
-    this.state = { movies: [], loading: true }
+  constructor(props) {
+    super(props);
+    this.state = { movies: [], loading: true };
   }
 
   componentDidMount() {
