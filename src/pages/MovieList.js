@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import MovieDetails from './MovieDetails';
-import { Loading } from '../components';
 
 class MovieList extends Component {
   constructor(props) {
