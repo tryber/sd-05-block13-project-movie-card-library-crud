@@ -11,8 +11,8 @@ class MovieDetails extends Component {
       movie: {},
       loading: true,
       notFound: false,
-    }
-  };
+    };
+  }
 
   componentDidMount() {
     const { id } = this.props.match.params;
