@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class MovieList extends Component {
   constructor(props) {
     super(props);
-    this.state = { movies: [], loading: true };
+    this.state = { movies: '', loading: true };
   }
 
   componentDidMount() {
@@ -17,7 +17,7 @@ class MovieList extends Component {
 
   render() {
     const { movies, loading } = this.state;
-    if (loading) { return <Loading /> };
+    if (loading === true) { return <Loading /> };
 
     return (
       <div>

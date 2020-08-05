@@ -26,7 +26,7 @@ class EditMovie extends Component {
     movieAPI
       .getMovie(id)
       .then((movie) => {
-        this.setState({ movie, status: 'not loading' })})
+        this.setState({ movie, status: 'loaded' })})
     };
 
   render() {
