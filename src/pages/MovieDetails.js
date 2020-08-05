@@ -16,7 +16,7 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id) 
+    movieAPI.getMovie(id)
       .then((response) => {
         this.setState({
           loading: false,
@@ -54,7 +54,7 @@ class MovieDetails extends Component {
 
 export default MovieDetails;
 
-MovieDetails.PropTypes = {
+MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
