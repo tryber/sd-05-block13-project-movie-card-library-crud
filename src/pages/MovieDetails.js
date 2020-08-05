@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: null,
+      movie: '',
       loaded: true,
     };
   }
 
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    movieAPI
+      .getMovie(id)
+      .then((movie) => this.setState({ movie, loaded: false }));
+  }
+
+
   render() {
-    const { storyline, imagePath, genre, rating, subtitle } = movieAPI.getMovie;
+    const { id, storyline, imagePath, genre, rating, subtitle, title } = this.state.movie;
     if (this.state.loaded) return <Loading />;
     return (
       <div data-testid="movie-details">
+        <h1>{title}</h1>
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={() => this.delete()}>
+          DELETAR
+        </Link>
       </div>
     );
   }
