@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
-
-
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
