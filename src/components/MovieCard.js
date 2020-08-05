@@ -16,13 +16,12 @@ class MovieCard extends React.Component {
   }
 }
 
-MovieCard,
-  (PropTypes = {
-    movie: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      storyline: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired
-    }),
-  });
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default MovieCard;
