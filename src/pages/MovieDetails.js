@@ -17,11 +17,6 @@ class MovieDetails extends Component {
       .then((movie) => this.setState({ movie, loading: false }));
   }
 
-  deleteFunction() {
-    const { id } = this.state.movie;
-    movieAPI.deleteMovie(id);
-  }
-
   render() {
     if (this.state.loading === true) return <Loading />;
 
@@ -37,9 +32,6 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link to="/" onClick={this.deleteFunction()}>
-          DELETAR
-        </Link>
       </div>
     );
   }

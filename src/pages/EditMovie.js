@@ -25,9 +25,9 @@ class EditMovie extends Component {
     const { id } = this.props.match.params;
     movieAPI
       .getMovie(id)
-      .then((movie) => this.setState({ movie }))
-      .then((response) => console.log(response))
-  }
+      .then((movie) => {
+        this.setState({ movie, status: 'not loading' })})
+    };
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
