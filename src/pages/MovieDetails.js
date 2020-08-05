@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -33,10 +34,16 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${movie.id}/edit`}>EDITAR</Link>
-        <Link to={`/`}>VOLTAR</Link>
+        <Link to={'/'}>VOLTAR</Link>
       </div>
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape,
+  params: PropTypes.shape,
+  id: PropTypes.string,
+};
 
 export default MovieDetails;
