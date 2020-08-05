@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { movie: {}, loading: false };
+    this.state = { movie: {}, loading: true };
   }
 
   componentDidMount() {
@@ -19,17 +19,9 @@ class MovieDetails extends Component {
 
   render() {
     const { loading, movie } = this.state;
-    return <Loading />
     // Change the condition to check the state
     if (loading) return <Loading />;
-    // const movie = {
-    //   title: '',
-    //   storyline: '',
-    //   imagePath: '',
-    //   genre: 'action',
-    //   rating: 0,
-    //   subtitle: '',
-    // };
+
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
@@ -40,7 +32,8 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        {/* <Link to={`/movies/${movie.id}/edit`}>EDITAR</Link> */}
+        <Link to={`/movies/${movie.id}/edit`}>EDITAR</Link>
+        <Link to={`/`}>VOLTAR</Link>
       </div>
     );
   }

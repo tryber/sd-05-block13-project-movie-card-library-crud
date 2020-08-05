@@ -14,7 +14,7 @@ class EditMovie extends Component {
     const { id } = this.props.match.params;
     movieAPI
       .getMovie(id)
-      .then((data) => this.setState({ movie: data, status: 'ehnoix' }));
+      .then((data) => this.setState({ movie: data, status: '' }));
   }
 
   handleSubmit(updatedMovie) {
