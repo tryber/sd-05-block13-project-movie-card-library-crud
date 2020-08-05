@@ -29,14 +29,14 @@ class EditMovie extends Component {
         status: false,
         notFound: true,
       }));
-    }
+  }
 
-    handleSubmit(updatedMovie) {
-      movieAPI.updateMovie(updatedMovie)
-        .then(() => this.setState({
-          shouldRedirect: true
-        }));
-    }
+  handleSubmit(updatedMovie) {
+    movieAPI.updateMovie(updatedMovie)
+      .then(() => this.setState({
+        shouldRedirect: true,
+      }));
+  }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
