@@ -41,9 +41,7 @@ class MovieDetails extends Component {
 }
 
 EditMovie.propTypes = {
-  match: PropTypes.shape,
-  params: PropTypes.shape,
-  id: PropTypes.string,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }),
 };
 
 export default MovieDetails;
