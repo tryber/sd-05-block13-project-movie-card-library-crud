@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -14,7 +14,8 @@ class MovieDetails extends Component {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id)
       .then((movie) => {
-        this.setState({ movie, loading: false })});
+        this.setState({ movie, loading: false });
+      });
   }
 
   render() {
