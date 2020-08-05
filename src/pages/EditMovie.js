@@ -21,12 +21,12 @@ class EditMovie extends Component {
     movieAPI
       .getMovie(id)
       .then((movie) => {
-        this.setState({ movie, status: 'loaded' })
+        this.setState({ movie, status: 'loaded' });
       });
   }
 
   handleSubmit(updatedMovie) {
-      movieAPI.updateMovie(updatedMovie)
+    movieAPI.updateMovie(updatedMovie)
       .then(() => this.setState({ shouldRedirect: true }));
   }
 
