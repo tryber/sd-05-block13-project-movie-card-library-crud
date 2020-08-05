@@ -11,6 +11,12 @@ class MovieDetails extends Component {
       movie: '',
       loaded: true,
     };
+    this.apagar = this.apagar.bind(this);
+  }
+
+  apagar() {
+    const { id } = this.state.movie;
+    movieAPI.deleteMovie(id);
   }
 
   componentDidMount() {
@@ -34,7 +40,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={() => this.delete()}>
+        <Link to="/" onClick={() => this.apagar()}>
           DELETAR
         </Link>
       </div>
@@ -50,3 +56,11 @@ MovieDetails.propTypes = {
 };
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};

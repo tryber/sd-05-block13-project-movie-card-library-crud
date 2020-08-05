@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import MovieDetails from './MovieDetails';
@@ -50,6 +51,7 @@ class MovieList extends Component {
             <MovieCard movie={movie} />
           </div>
         ))}
+        <Link to='/movies/new'> ADICIONAR CARTÃO </Link>
       </div>
     );
   }
