@@ -14,16 +14,16 @@ class MovieDetails extends Component {
     this.apagar = this.apagar.bind(this);
   }
 
-  apagar() {
-    const { id } = this.state.movie;
-    movieAPI.deleteMovie(id);
-  }
-
   componentDidMount() {
     const { id } = this.props.match.params;
     movieAPI
       .getMovie(id)
       .then((movie) => this.setState({ movie, loaded: false }));
+  }
+
+  apagar() {
+    const { id } = this.state.movie;
+    movieAPI.deleteMovie(id);
   }
 
 
