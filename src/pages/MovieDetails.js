@@ -33,7 +33,7 @@ class MovieDetails extends Component {
     const { loading, notFound, id } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     if (loading) return <Loading />;
-    if (notFound) return <Redirect to="404-error" />;
+    if (notFound) return <Redirect to="/404-error" />;
 
     return (
       <div data-testid="movie-details">
