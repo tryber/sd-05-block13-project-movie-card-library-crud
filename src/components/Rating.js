@@ -1,5 +1,5 @@
 import React from 'react';
-import './movie-card.css';
+import 'movie-card.css';
 
 class Rating extends React.Component {
   render() {

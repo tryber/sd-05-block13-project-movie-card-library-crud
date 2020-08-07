@@ -1,6 +1,7 @@
 import React from 'react';
-import Rating from './Rating';
-import './movie-card.css';
+import Rating from 'Rating';
+import 'movie-card.css';
+import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.propTypes = {
-  imagePath: propTypes.string,
-  title: propTypes.string,
-  subtitle: propTypes.string,
+  imagePath: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   storyline: PropTypes.string,
   rating: PropTypes.number,
 }
