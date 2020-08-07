@@ -4,7 +4,8 @@ import './movie-card.css';
 
 class MovieCard extends React.Component {
   render() {
-    const { imagePath, title, subtitle, storyline, rating } = this.props.movie;
+    const { movie } = this.props;
+    const { imagePath, title, subtitle, storyline, rating } = movie;
     return (
       <div data-testid="movie-card" className="card center movie-card" >
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
