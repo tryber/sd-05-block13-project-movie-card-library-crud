@@ -1,5 +1,5 @@
-import * as movieAPI from 'services/movieAPI';
-import { Loading, MovieCard } from 'components';
+import * as movieAPI from '../services/movieAPI';
+import { Loading, MovieCard } from '../components';
 import React, { Component } from 'react';
 
 
@@ -16,8 +16,8 @@ class MovieList extends Component {
     const { movies } = this.state;
     if (movies !== null) {
       return (
-        <div style={{ display: 'flex', flexDirection: 'start' }} >
-          {movies.map((movie) => <MovieCard movie={movie} />)}
+        <div style={{ display: 'flex', flexDirection: 'start' }} data-testid="movie-list" >
+          {movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
         </div>
       );
     }
