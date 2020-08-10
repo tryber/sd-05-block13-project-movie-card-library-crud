@@ -14,12 +14,12 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     const id = parseInt(props.match.params.movieId, 10);
-    movieAPI.getMovie(id).then(result => this.setState({ movie: result, status: '' }));
+    movieAPI.getMovie(id).then((result) => this.setState({ movie: result, status: '' }));
   }
 
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: true })
+    this.setState({ shouldRedirect: true });
   }
 
   render() {
