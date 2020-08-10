@@ -4,7 +4,6 @@ import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
 
 function App() {
-  
   return (
     <Router>
       <Switch>

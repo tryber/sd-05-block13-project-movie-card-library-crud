@@ -9,13 +9,13 @@ class MovieDetails extends Component {
     this.state = {
       movie: null,
     };
-    const id = parseInt(props.match.params.movieId);
-    movieAPI.getMovies().then(result =>  this.setState({ movie: result.find(movie => movie.id === id) }));
-
+    const id = parseInt(props.match.params.movieId, 10);
+    movieAPI.getMovies().then((result) =>
+    this.setState({ movie: result.find((movie) => movie.id === id) }));
   }
   render() {
     // Change the condition to check the state
-    if(this.state.movie === null) return(<Loading/>)
+    if (this.state.movie === null) return (<Loading />);
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     return (
       <div data-testid="movie-details">
@@ -32,9 +32,9 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      movieId: PropTypes.string
-    })
+      movieId: PropTypes.string,
+    }),
   }).isRequired,
-}
+};
 
 export default MovieDetails;
