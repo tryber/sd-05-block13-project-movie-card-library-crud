@@ -20,7 +20,7 @@ class MovieList extends Component {
         <div style={{ display: 'flex', flexDirection: 'start' }} data-testid="movie-list" >
           {movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
           <div>
-            <Link to="/movies/new">Novo Filme</Link>
+            <Link to="/movies/new">ADICIONAR CARTÃO</Link>
           </div>
         </div>
       );
