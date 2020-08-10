@@ -13,7 +13,7 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     const id = parseInt(props.match.params.movieId, 10);
-    movieAPI.getMovie(id).then(result => this.setState({ movie: result, status: '' }))
+    movieAPI.getMovie(id).then(result => this.setState({ movie: result, status: '' }));
   }
 
   handleSubmit(updatedMovie) {
@@ -38,5 +38,13 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      movieId: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default EditMovie;
