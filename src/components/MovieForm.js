@@ -21,7 +21,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_title">Titulo</label><br />
+        <label htmlFor="movie_title">Título</label><br />
         <input
           placeholder="Insira o título"
           id="movie_title"
@@ -39,7 +39,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_subtitle">Subtitulo</label><br />
+        <label htmlFor="movie_subtitle">Subtítulo</label><br />
         <input
           className="caixaInput"
           placeholder="Insira o subtítulo"
