@@ -64,8 +64,9 @@ class MovieForm extends React.Component {
           id="movie_image"
           type="text"
           value={imagePath}
-          onChange={(event) => this.updateMovie('imagePath', event.target.value)} />
-      </ div>
+          onChange={(event) => this.updateMovie('imagePath', event.target.value)}
+        />
+      </div>
     );
   }
 
