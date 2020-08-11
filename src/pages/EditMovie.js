@@ -13,11 +13,11 @@ class EditMovie extends Component {
 
   // handleSubmit(updatedMovie) {
   // }
-    componentDidMount() {
-      const { id } = this.props.match.params;
-      movieAPI.getMovie(id).then(movie => 
-      this.setState({ movie, status: 'loaded' }));
-  }
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    movieAPI.getMovie(id).then(movie =>
+    this.setState({ movie, status: 'loaded' }));
+    }
 
   async handleSubmit(updateMovie) {
     await movieAPI.updateMovie(updateMovie);
@@ -50,6 +50,6 @@ EditMovie.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
-}
+};
 
 export default EditMovie;

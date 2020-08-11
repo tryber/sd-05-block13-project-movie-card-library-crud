@@ -56,8 +56,7 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div
-        className="row">
+      <div className="row">
         <label htmlFor="movie_image">Imagem</label><br />
         <input
           className="caixaInput"
@@ -65,8 +64,8 @@ class MovieForm extends React.Component {
           id="movie_image"
           type="text"
           value={imagePath}
-          onChange={(event) => this.updateMovie('imagePath', event.target.value)}/>
-      </div>
+          onChange={(event) => this.updateMovie('imagePath', event.target.value)} />
+      </ div>
     );
   }
 
