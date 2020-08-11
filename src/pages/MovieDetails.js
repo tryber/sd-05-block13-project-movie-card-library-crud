@@ -7,15 +7,15 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { movie: '', loading: true, };
+    this.state = { movie: '', loading: true };
     this.delete = this.delete.bind(this);
-  };
+  }
 
 
   componenteDidMount() {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id).then((movie) =>
-    this.setState({ movie, loading: false, }));
+    this.setState({ movie, loading: false }));
   }
 
   delete() {
@@ -33,18 +33,18 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details">
-            <img alt="Movie Cover" src={`../${imagePath}`} />
-            <h1>{title}</h1>
-            <p>{`Subtitle: ${subtitle}`}</p>
-            <p>{`Storyline: ${storyline}`}</p>
-            <p>{`Genre: ${genre}`}</p>
-            <p>{`Rating: ${rating}`}</p>
-            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-            <Link to="/">VOLTAR</Link>
-            <Link to="/" onClick={() => this.delete()}>DELETAR</Link>
+        <img alt="Movie Cover" src={`../${imagePath}`} />
+        <h1>{title}</h1>
+        <p>{`Subtitle: ${subtitle}`}</p>
+        <p>{`Storyline: ${storyline}`}</p>
+        <p>{`Genre: ${genre}`}</p>
+        <p>{`Rating: ${rating}`}</p>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={() => this.delete()}>DELETAR</Link>
       </div>
     );
-  }   
+  }
 }
 
 MovieDetails.propTypes = {
