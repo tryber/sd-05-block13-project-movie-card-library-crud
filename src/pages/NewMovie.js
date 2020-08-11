@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import MovieForm from '../components/MovieForm';
-import * as movieAPI from '../services/movieAPI';
 import { Redirect } from 'react-router-dom';
+import MovieForm from '../components/MovieForm';
+import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
+
 
 class NewMovie extends Component {
   constructor(props) {
@@ -11,9 +13,9 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
-    movieAPI
-      .createMovie(newMovie)
-      .then(() => this.setState({ submitMovie: true }));
+    movieAPI.createMovie(newMovie).then(() => { 
+      this.setState({ submitMovie: true });
+    });
   }
 
   render() {
@@ -27,4 +29,5 @@ class NewMovie extends Component {
     );
   }
 }
+ 
 export default NewMovie;
