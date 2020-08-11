@@ -7,20 +7,16 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      movie: [],
-      shouldRedirect: false,
-      status: 'loading',
-    };
+    this.state = { status: 'loading', shouldRedirect: false, movie: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // handleSubmit(updatedMovie) {
   // }
-  async componentDidMount() {
-    await movieAPI.getMovie(this.props.match.param)
-      .then(movie => this.setState({ movie, status: false,
-      }));
+    componentDidMount() {
+      const { id } = this.props.match.params;
+      movieAPI.getMovie(id).then(movie => 
+      this.setState({ movie, status: 'loaded' }));
   }
 
   async handleSubmit(updateMovie) {
@@ -54,6 +50,6 @@ EditMovie.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
-};
+}
 
 export default EditMovie;

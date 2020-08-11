@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
-import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 
