@@ -13,7 +13,7 @@ class MovieList extends Component {
   }
   render() {
     const { movies } = this.state;
-    if movies !== '' {
+    if { movies } !== '' {
       return (
         <div data-testid="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
