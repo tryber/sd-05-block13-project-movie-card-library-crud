@@ -9,7 +9,7 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor(props) {
     super(props);
-    this.state = {movies: ''};
+    this.state = { movies: '' };
   }
   render() {
     const { movies } = this.state;
@@ -19,9 +19,8 @@ class MovieList extends Component {
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         </div>
       );
-    } else {
-      <Loading />
     }
+    <Loading />;
   }
 }
 
