@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 import Loading from '.../components/Loading';
-
+import React from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -13,14 +13,15 @@ class MovieList extends Component {
   }
   render() {
     const { movies } = this.state;
-    if (movies !== '') {
+    if (movies === '') {
       return (
-        <div data-testid="movie-list">
+        <Loading />;
+      )
+        /* <div data-testid="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
-        </div>
-      );
+        </div> 
+      ); */
     }
-    <Loading />;
   }
 }
 
