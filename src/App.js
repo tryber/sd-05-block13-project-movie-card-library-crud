@@ -1,13 +1,13 @@
 // participei do catch up do grupo da Renatinha, com Sid codando esse projeto
 import React from 'react';
-// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
   return (
-      <div>Movie Card Library CRUD</div>
-      // <BrowserRouter>
-       // <Route path="/movies/MovieDetails" component={MovieDetails} />
-      // </BrowserRouter>
+    <BrowserRouter>
+      <Route path="/" component={MovieDetails} />
+    </BrowserRouter>
   );
 }
 
