@@ -1,8 +1,7 @@
+/* https://pt.stackoverflow.com/questions
+  /369892/como-redirecionar-para-uma-rota-usando-onclick-e-react-router */
 import React from 'react';
-// import MovieDetails from './pages/MovieDetails';
-// import { Route } from 'react-router-dom';
-// import movieData from './services/movieData';
-// import movies from '../services/movieData';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
@@ -11,18 +10,14 @@ class MovieCard extends React.Component {
     const { title, storyline, id } = movies;
     return (
       <div data-testid="movie-card">
-        <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
         <div className="movie-card-body">
           <h4 className="movie-card-title">{title}</h4>
-          <h5 className="movie-card-subtitle">{subtitle}</h5>
           <p className="movie-card-storyline">{storyline}</p>
+          <Link to={`/movies/${id}`}> VER DETALHES</Link> 
         </div>
       </div>
     );
   }
-  /* return (
-    <Route exact path="movies/:id" component={movieData} />
-  ) */
 }
 
 export default MovieCard;
