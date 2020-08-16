@@ -1,4 +1,4 @@
-   /* exemplo do site 
+   /* exemplo do site
     https://imasters.com.br/front-end/entendendo-estado-de-componentes-com-react-na-pratica */
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
@@ -19,17 +19,19 @@ class MovieList extends Component {
     a tela. Isso garante que mesmo que o render() seja
     chamado duas vezes neste caso, o usuário não verá o state intermediário. */
   componentDidMount() {
-    movieAPI.getMovies().then((data) => this.setState({movies: data}));
+    movieAPI.getMovies().then((data) => this.setState({ movies: data }));
   }
 
   render() {
     const { movies } = this.state;
     if (movies === '') {
-      return <Loading />
+      return <Loading />;
     }
-    <div data-testid="movie-list">
-      {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
-      </div> 
+    return(
+      <div data-testid="movie-list">
+        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+      </div>;
+    );
   }
 }
 
