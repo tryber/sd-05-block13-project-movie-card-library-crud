@@ -1,14 +1,14 @@
 import React from 'react';
-import MovieDetails from './pages/MovieDetails';
-import { Route } from 'react-router-dom';
-import movieData from './services/movieData';
-import movies from '../services/movieData';
+// import MovieDetails from './pages/MovieDetails';
+// import { Route } from 'react-router-dom';
+// import movieData from './services/movieData';
+// import movies from '../services/movieData';
 
 class MovieCard extends React.Component {
   render() {
     // copiei do meu projeto Stateful
-    const { movies } = this.props;
-    const { title, subtitle, storyline, imagePath } = movies;
+    const { movies } = this.props.movies;
+    const { title, storyline, id } = movies;
     return (
       <div data-testid="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
