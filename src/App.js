@@ -1,14 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Router } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
+    // #1 criando as rotas solicitadas
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
-      <Router path="/" />
-      <Router path="/movies/:id" />
-      <Router path="/movies/new" />
-      <Router path="/movies/:id/edit" />
+      <Route path="/" />
+      <Route path="/movies/:id" />
+      <Route path="/movies/new" />
+      <Route path="/movies/:id/edit" />
     </BrowserRouter>
   );
 }
