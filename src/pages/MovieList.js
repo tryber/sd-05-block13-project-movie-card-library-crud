@@ -4,14 +4,14 @@ import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
 
 class MovieList extends Component {
-  // Inicialização do ciclo de vida. 
+  // Inicialização do ciclo de vida.
   constructor(props) {
     super(props);
     this.state = { filmes: [], load: true };
   }
   // Montagem do ciclo de vida.
   componentDidMount() {
-    movieAPI.getMovies().then((filme) => this.setState({ filmes: filme, load: false }))
+    movieAPI.getMovies().then((filme) => this.setState({ filmes: filme, load: false }));
   }
 
   render() {
