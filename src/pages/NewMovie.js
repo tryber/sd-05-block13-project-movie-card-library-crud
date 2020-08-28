@@ -3,6 +3,17 @@ import { Redirect } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
+const novoMovie = {
+  id: '',
+  title: '',
+  subtitle: '',
+  storyline: '',
+  rating: '',
+  imagePath: '',
+  bookmarked: '',
+  genre: '',
+}
+
 class NewMovie extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +35,7 @@ class NewMovie extends Component {
     if (redirect) return <Redirect to="/" />;
     return (
       <div data-testid="new-movie">
-        <MovieForm onSubmit={this.handleSubmit} />
+        <MovieForm movie={novoMovie} onSubmit={this.handleSubmit} />
       </div>
     );
   }

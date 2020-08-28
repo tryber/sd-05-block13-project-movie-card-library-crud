@@ -1,15 +1,17 @@
 /* https://pt.stackoverflow.com/questions
   /369892/como-redirecionar-para-uma-rota-usando-onclick-e-react-router */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
     // copiei do meu projeto Stateful algumas coisas
-    const { title, storyline, id } = this.props.movies;
+    const { movie } = this.props;
+    const { title, storyline, id, imagePath } = movie;
     return (
       <div data-testid="movie-card">
+        <img alt="Movie Cover" src={imagePath} />
         <div className="movie-card-body">
           <h4 className="movie-card-title">{title}</h4>
           <p className="movie-card-storyline">{storyline}</p>
@@ -21,12 +23,13 @@ class MovieCard extends React.Component {
 }
 
 // aprendi no projeto em grupo
+
+export default MovieCard;
+
 MovieCard.propTypes = {
-  movies: PropTypes.shape({
+  movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
   }).isRequired,
 };
-
-export default MovieCard;

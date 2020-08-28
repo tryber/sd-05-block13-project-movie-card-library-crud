@@ -8,7 +8,10 @@ import movies from '../services/movieData';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { movies: {} };
+    this.state = { 
+      movies: undefined,
+      loading: true,
+    };
   }
 
   /* A match object contains information about how a <Route path>
@@ -17,11 +20,12 @@ class MovieDetails extends Component {
   to the dynamic segments of the path */
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((movie) => this.setState({ movie }));
+    movieAPI.getMovie(id).then((movie) => this.setState({ movies: movie, loading: false }));
   }
 
   render() {
-    if (movies === '') return <Loading />;
+    const { movies, loading } = this.state;
+    if (loading) return <Loading />;
     const { title, storyline, imagePath, genre, subtitle, rating, id } = movies;
     return (
       <div data-testid="movie-details">

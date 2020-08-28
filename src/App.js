@@ -1,7 +1,7 @@
 // participei do catch up do grupo da Renatinha, com Sid codando esse projeto
-// fiquei com duvida no import ser do index, perguntei pro Sid
+// fiquei com duvida no import ser do index, perguntei pro Sid e Kyle
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
   MovieList,
   MovieDetails,
@@ -13,11 +13,13 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/" component={MovieDetails} />
-      <Route path="/movielist" component={MovieList} />
-      <Route path="/newmovie" component={NewMovie} />
-      <Route path="/notfound" component={NotFound} />
-      <Route path="/edit" component={EditMovie} />
+      <Switch>
+      <Route exact path="/" component={MovieList} />
+      <Route path="/movies/new" component={NewMovie} />
+      <Route path="/movies/:id/edit" component={EditMovie} />
+      <Route path="/movies/:id" component={MovieDetails} />
+      <Route path="/:error" component={NotFound} />
+      </Switch>
     </BrowserRouter>
   );
 }
