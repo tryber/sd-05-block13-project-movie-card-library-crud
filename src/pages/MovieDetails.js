@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
-import PropTypes from 'prop-types'
 import { Loading } from '../components';
 import movies from '../services/movieData';
 
@@ -11,7 +11,7 @@ class MovieDetails extends Component {
     this.state = { movies: {} };
   }
 
-  /* A match object contains information about how a <Route path> 
+  /* A match object contains information about how a <Route path>
   matched the URL. match objects contain the following properties:
   params - (object) Key/value pairs parsed from the URL corresponding
   to the dynamic segments of the path */
