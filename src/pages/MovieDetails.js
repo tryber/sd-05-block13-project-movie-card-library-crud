@@ -8,7 +8,7 @@ import movies from '../services/movieData';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       movie: undefined,
       loading: true,
     };
