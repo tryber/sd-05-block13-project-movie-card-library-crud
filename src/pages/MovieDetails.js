@@ -9,7 +9,7 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      movies: undefined,
+      movie: undefined,
       loading: true,
     };
   }
@@ -20,13 +20,13 @@ class MovieDetails extends Component {
   to the dynamic segments of the path */
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((movie) => this.setState({ movies: movie, loading: false }));
+    movieAPI.getMovie(id).then((i) => this.setState({ movie: i, loading: false }));
   }
 
   render() {
-    const { movies, loading } = this.state;
+    const { movie, loading } = this.state;
     if (loading) return <Loading />;
-    const { title, storyline, imagePath, genre, subtitle, rating, id } = movies;
+    const { title, storyline, imagePath, genre, subtitle, rating, id } = movie;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />

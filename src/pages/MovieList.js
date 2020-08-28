@@ -9,9 +9,9 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       movies: undefined,
-      loading: true, 
+      loading: true,
     };
   }
   /*  dispara uma ou mais ações após o

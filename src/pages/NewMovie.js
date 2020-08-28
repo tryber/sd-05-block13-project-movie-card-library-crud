@@ -12,7 +12,7 @@ const novoMovie = {
   imagePath: '',
   bookmarked: '',
   genre: '',
-}
+};
 
 class NewMovie extends Component {
   constructor(props) {
