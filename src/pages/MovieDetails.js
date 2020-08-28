@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
 import { Link } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI';
+import PropTypes from 'prop-types'
+import { Loading } from '../components';
 import movies from '../services/movieData';
 
 class MovieDetails extends Component {
@@ -10,9 +11,13 @@ class MovieDetails extends Component {
     this.state = { movies: {} };
   }
 
+  /* A match object contains information about how a <Route path> 
+  matched the URL. match objects contain the following properties:
+  params - (object) Key/value pairs parsed from the URL corresponding
+  to the dynamic segments of the path */
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((movies) => this.setState({ movies }))
+    movieAPI.getMovie(id).then((movie) => this.setState({ movie }));
   }
 
   render() {
@@ -32,5 +37,11 @@ class MovieDetails extends Component {
     );
   }
 }
+// shape define o tipo de cada atributo do objeto
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.any,
+  }).isRequired,
+};
 
 export default MovieDetails;
