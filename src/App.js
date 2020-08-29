@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MovieList from './pages/MovieList';
 
-function App() {
+export default function App() {
   return (
     <div>
       <div>Movie Card Library CRUD</div>
@@ -14,5 +14,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
