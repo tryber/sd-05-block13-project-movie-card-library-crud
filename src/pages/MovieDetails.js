@@ -12,13 +12,14 @@ class MovieDetails extends Component {
       movie: undefined,
       loading: true,
     };
+    this.deletar = this.deletar.bind(this);
   }
-  this.deletar = this.deletar.bind(this);
 
   /* A match object contains information about how a <Route path>
   matched the URL. match objects contain the following properties:
   params - (object) Key/value pairs parsed from the URL corresponding
   to the dynamic segments of the path */
+  
   componentDidMount() {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id).then((i) => this.setState({ movie: i, loading: false }));
