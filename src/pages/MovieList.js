@@ -14,8 +14,7 @@ class MovieList extends Component {
       movies: undefined,
       loading: true,
     };
-    this.deletar = this.deletar.bind(this);
-  }
+    
   /*  dispara uma ou mais ações após o
    componente ser inserido no DOM (ideal para requisições)
    then retorna uma promisse
@@ -27,10 +26,6 @@ class MovieList extends Component {
     movieAPI.getMovies().then((data) => this.setState({ movies: data, loading: false }));
   }
   
-  deletar() {
-    const { id } = this.state.movies;
-    movieAPI.deleteMovie(id);
-  }
   render() {
     const { movies, loading } = this.state;
     if (loading) {
@@ -40,7 +35,6 @@ class MovieList extends Component {
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         <Link to={'/movies/new'}>ADICIONAR CARTÃO</Link>
-        <Link to={'/'} onClick={() => this.deletar()}>APAGAR CARTÃO</Link>
       </div>
     );
   }

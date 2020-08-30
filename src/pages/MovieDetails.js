@@ -14,6 +14,9 @@ class MovieDetails extends Component {
     };
   }
 
+  this.deletar = this.deletar.bind(this);
+  }
+  
   /* A match object contains information about how a <Route path>
   matched the URL. match objects contain the following properties:
   params - (object) Key/value pairs parsed from the URL corresponding
@@ -21,6 +24,11 @@ class MovieDetails extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id).then((i) => this.setState({ movie: i, loading: false }));
+  }
+
+  deletar() {
+    const { id } = this.state.movies;
+    movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -37,6 +45,7 @@ class MovieDetails extends Component {
         <p>{`Rating:${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to={'/'} onClick={() => this.deletar()}>APAGAR CARTÃO</Link>
       </div>
     );
   }
