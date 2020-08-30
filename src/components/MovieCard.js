@@ -1,5 +1,7 @@
 /* https://pt.stackoverflow.com/questions
-  /369892/como-redirecionar-para-uma-rota-usando-onclick-e-react-router */
+  /369892/como-redirecionar-para-uma-rota-usando-onclick-e-react-router
+  Referencia projeto do Kyle
+  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
