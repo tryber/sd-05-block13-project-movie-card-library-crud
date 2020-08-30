@@ -14,14 +14,7 @@ class MovieList extends Component {
       movies: undefined,
       loading: true,
     };
-    
-  /*  dispara uma ou mais ações após o
-   componente ser inserido no DOM (ideal para requisições)
-   then retorna uma promisse
-   setState: Ele irá disparar uma renderização extra,
-    mas isto irá ocorrer antes que o browser atualize
-    a tela. Isso garante que mesmo que o render() seja
-    chamado duas vezes neste caso, o usuário não verá o state intermediário. */
+
   componentDidMount() {
     movieAPI.getMovies().then((data) => this.setState({ movies: data, loading: false }));
   }

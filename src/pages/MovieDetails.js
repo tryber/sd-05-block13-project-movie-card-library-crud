@@ -13,10 +13,8 @@ class MovieDetails extends Component {
       loading: true,
     };
   }
-
   this.deletar = this.deletar.bind(this);
-  }
-  
+
   /* A match object contains information about how a <Route path>
   matched the URL. match objects contain the following properties:
   params - (object) Key/value pairs parsed from the URL corresponding
