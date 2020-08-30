@@ -1,5 +1,6 @@
-   /* exemplo do site
-    https://imasters.com.br/front-end/entendendo-estado-de-componentes-com-react-na-pratica */
+/* exemplo do site
+https://imasters.com.br/front-end/entendendo-estado-de-componentes-com-react-na-pratica
+*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
