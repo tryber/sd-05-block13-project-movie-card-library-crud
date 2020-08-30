@@ -23,8 +23,8 @@ class NewMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(newMovie) {
-    movieAPI.createMovie(newMovie).then(
+  handleSubmit(novoMovie) {
+    movieAPI.createMovie(novoMovie).then(
       this.setState({
         redirect: true,
       }));
