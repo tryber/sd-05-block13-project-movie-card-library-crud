@@ -26,7 +26,7 @@ class MovieDetails extends Component {
   }
 
   deletar() {
-    const { id } = this.state.movies;
+    const { id } = this.state.movie;
     movieAPI.deleteMovie(id);
   }
 
