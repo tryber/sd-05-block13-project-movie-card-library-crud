@@ -19,7 +19,7 @@ class MovieDetails extends Component {
   matched the URL. match objects contain the following properties:
   params - (object) Key/value pairs parsed from the URL corresponding
   to the dynamic segments of the path */
-  
+
   componentDidMount() {
     const { id } = this.props.match.params;
     movieAPI.getMovie(id).then((i) => this.setState({ movie: i, loading: false }));
