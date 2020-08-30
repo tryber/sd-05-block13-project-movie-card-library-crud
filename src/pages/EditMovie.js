@@ -1,3 +1,4 @@
+// projeto do Sidnei
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
@@ -44,7 +45,7 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string })}).isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
 };
 
 export default EditMovie;
