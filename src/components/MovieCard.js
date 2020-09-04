@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
-    let oFilme;
     if (this.props.movie) {
       const { title, storyline, id } = this.props.movie;
       return (

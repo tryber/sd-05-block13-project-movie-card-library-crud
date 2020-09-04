@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import MovieCard from './components/MovieCard';
 import MovieList from './pages/MovieList';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import Details from './pages/MovieDetails';
 import Notfound from './pages/NotFound';
+
 function App() {
   return (
     // #1 criando as rotas solicitadas

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -22,7 +22,7 @@ class MovieDetails extends Component {
         console.log(movie);
         this.setState({
           loading: false,
-          movie: movie,
+          movie,
         });
       })
       .catch(() => this.setState({ loading: false, notFound: true }));
@@ -59,5 +59,13 @@ class MovieDetails extends Component {
     return <h1>Deu Ruim no final</h1>;
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: propTypes.shape({
+      id: propTypes.string,
+    }),
+  }),
+};
 
 export default MovieDetails;
